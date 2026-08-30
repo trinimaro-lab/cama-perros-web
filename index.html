@@ -5,21 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Taller Pata — Cama elevada de madera para perros</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐾</text></svg>">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;600;700;800&family=Roboto:wght@400;500;600;700&display=swap">
 <style>
   .tp{
     --cream:#f9fbf2;
     --cream-2:#eef1e2;
     --cream-dim:rgba(249,251,242,0.72);
-    --sky:#d7f9ff;
-    --sky-2:#c2eef6;
+    --sky:#ebfcff;
+    --sky-2:#d8f2f6;
     --wood:#c68b4f;
     --wood-deep:#a9713a;
     --ink:#22282a;
     --ink-dim:#5c6461;
     --blue-ink:#2f8fa6;
     --line:rgba(34,40,42,0.14);
-    font-family:'Archivo',ui-sans-serif,system-ui,sans-serif;
+    font-family:'Roboto',ui-sans-serif,system-ui,sans-serif;
     background:var(--cream);
     color:var(--ink);
     line-height:1.5;
@@ -29,10 +29,10 @@
   .tp *{box-sizing:border-box;}
   .tp img{max-width:100%;display:block;}
   .tp .wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
-  .tp h1,.tp h2,.tp h3{font-family:'Big Shoulders Display',ui-sans-serif,sans-serif;font-weight:700;letter-spacing:0.01em;text-wrap:balance;margin:0;}
-  .tp .mono{font-family:'IBM Plex Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;}
+  .tp h1,.tp h2,.tp h3{font-family:'DM Sans',ui-sans-serif,sans-serif;font-weight:700;letter-spacing:0.01em;text-wrap:balance;margin:0;}
+  .tp .mono{font-family:'DM Sans',ui-sans-serif,sans-serif;font-variant-numeric:tabular-nums;}
   .tp .eyebrow{
-    font-family:'IBM Plex Mono',ui-monospace,monospace;
+    font-family:'DM Sans',ui-sans-serif,sans-serif;
     font-size:12.5px;
     letter-spacing:0.14em;
     text-transform:uppercase;
@@ -42,7 +42,7 @@
   .tp .btn{
     display:inline-flex;align-items:center;gap:10px;
     background:var(--wood);color:var(--ink);
-    font-family:'Archivo';font-weight:700;font-size:15px;
+    font-family:'Roboto';font-weight:700;font-size:15px;
     padding:15px 28px;border-radius:3px;border:none;cursor:pointer;
     text-decoration:none;letter-spacing:0.01em;
     transition:background .15s ease, transform .15s ease;
@@ -57,16 +57,16 @@
   /* utility bar */
   .tp .utility{
     background:var(--sky);border-bottom:1px solid var(--line);
-    font-family:'IBM Plex Mono';font-size:12px;letter-spacing:0.04em;color:var(--ink-dim);
+    font-family:'DM Sans';font-size:12px;letter-spacing:0.04em;color:var(--ink-dim);
   }
   .tp .utility .wrap{display:flex;justify-content:center;gap:36px;padding:9px 32px;flex-wrap:wrap;text-align:center;}
 
   /* header */
   .tp header.site{padding:22px 0 0;}
   .tp header.site .wrap{display:flex;align-items:center;justify-content:space-between;}
-  .tp .wordmark{font-family:'Big Shoulders Display';font-weight:800;font-size:22px;letter-spacing:0.04em;display:flex;align-items:center;gap:9px;}
+  .tp .wordmark{font-family:'DM Sans';font-weight:800;font-size:22px;letter-spacing:0.04em;display:flex;align-items:center;gap:9px;}
   .tp .wordmark .paw{color:var(--wood-deep);font-size:18px;}
-  .tp .price-tag{font-family:'IBM Plex Mono';font-size:15px;color:var(--ink-dim);}
+  .tp .price-tag{font-family:'DM Sans';font-size:15px;color:var(--ink-dim);}
   .tp .price-tag b{color:var(--ink);font-weight:600;}
 
   /* hero */
@@ -76,7 +76,7 @@
   .tp .hero h1 em{font-style:normal;color:var(--wood-deep);}
   .tp .hero p.lede{font-size:17.5px;color:var(--ink-dim);max-width:46ch;margin-bottom:28px;}
   .tp .hero-cta{display:flex;align-items:center;gap:22px;flex-wrap:wrap;}
-  .tp .hero-cta .price{font-family:'IBM Plex Mono';font-size:26px;font-weight:600;}
+  .tp .hero-cta .price{font-family:'DM Sans';font-size:26px;font-weight:600;}
   .tp .hero-cta .price small{display:block;font-size:11px;color:var(--ink-dim);font-weight:400;letter-spacing:0.06em;text-transform:uppercase;margin-top:2px;}
 
   .tp .hero-frame{position:relative;border:1px solid var(--line);padding:14px;border-radius:4px;background:var(--cream-2);}
@@ -88,10 +88,10 @@
     background:repeating-linear-gradient(45deg,var(--cream-2),var(--cream-2) 11px,var(--sky-2) 11px,var(--sky-2) 22px);
   }
   .tp .ph svg{width:30px;height:30px;opacity:0.7;stroke:var(--blue-ink);}
-  .tp .ph .ph-label{font-family:'IBM Plex Mono';font-size:10.5px;letter-spacing:0.05em;text-transform:uppercase;max-width:24ch;line-height:1.5;}
+  .tp .ph .ph-label{font-family:'DM Sans';font-size:10.5px;letter-spacing:0.05em;text-transform:uppercase;max-width:24ch;line-height:1.5;}
   .tp .dim-svg{position:absolute;inset:0;pointer-events:none;}
   .tp .dim-label{
-    position:absolute;font-family:'IBM Plex Mono';font-size:11.5px;color:var(--blue-ink);
+    position:absolute;font-family:'DM Sans';font-size:11.5px;color:var(--blue-ink);
     background:var(--cream);border:1px solid var(--line);padding:2px 7px;border-radius:2px;letter-spacing:0.02em;
   }
 
@@ -100,7 +100,7 @@
   .tp .specs .wrap{display:grid;grid-template-columns:repeat(4,1fr);}
   .tp .spec-item{padding:22px 20px;border-left:1px solid var(--line);}
   .tp .spec-item:first-child{border-left:none;}
-  .tp .spec-item .num{font-family:'IBM Plex Mono';font-size:21px;color:var(--wood-deep);font-weight:600;}
+  .tp .spec-item .num{font-family:'DM Sans';font-size:21px;color:var(--wood-deep);font-weight:600;}
   .tp .spec-item .lab{font-size:12px;color:var(--ink-dim);letter-spacing:0.03em;margin-top:4px;}
 
   /* story rows */
@@ -122,7 +122,7 @@
   /* assembly diagram numbers */
   .tp .assembly-steps{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:28px;}
   .tp .assembly-steps div{border:1px solid var(--line);border-radius:4px;padding:16px;background:var(--cream-2);}
-  .tp .assembly-steps .step-n{font-family:'IBM Plex Mono';color:var(--blue-ink);font-size:12px;letter-spacing:0.08em;}
+  .tp .assembly-steps .step-n{font-family:'DM Sans';color:var(--blue-ink);font-size:12px;letter-spacing:0.08em;}
   .tp .assembly-steps .step-t{font-size:14.5px;margin-top:6px;color:var(--ink);}
 
   /* material (sky band) */
@@ -134,7 +134,7 @@
   .tp .swatches{display:flex;gap:28px;flex-wrap:wrap;}
   .tp .swatch{display:flex;align-items:center;gap:10px;}
   .tp .swatch .chip{width:22px;height:22px;border-radius:50%;border:1px solid rgba(0,0,0,0.15);flex:none;}
-  .tp .swatch span{font-family:'IBM Plex Mono';font-size:13px;color:var(--ink);}
+  .tp .swatch span{font-family:'DM Sans';font-size:13px;color:var(--ink);}
   .tp .mat-note{margin-top:36px;padding-top:28px;border-top:1px solid var(--line);font-size:13.5px;color:var(--ink-dim);max-width:60ch;}
 
   /* lifestyle gallery */
@@ -155,7 +155,7 @@
   .tp .breeds p{color:var(--ink-dim);max-width:42ch;font-size:15.5px;}
   .tp .breed-tags{display:flex;flex-wrap:wrap;gap:10px;align-content:flex-start;}
   .tp .breed-tag{border:1px solid var(--line);border-radius:100px;padding:9px 18px;font-size:14px;color:var(--ink);background:var(--cream);}
-  .tp .breed-tag.range{border-color:var(--wood-deep);color:var(--wood-deep);font-family:'IBM Plex Mono';font-size:13px;}
+  .tp .breed-tag.range{border-color:var(--wood-deep);color:var(--wood-deep);font-family:'DM Sans';font-size:13px;}
 
   /* faq */
   .tp .faq{padding:80px 0 100px;border-top:1px solid var(--line);}
@@ -164,7 +164,7 @@
   .tp details{border-bottom:1px solid var(--line);padding:20px 0;}
   .tp details summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:20px;font-size:16px;font-weight:600;color:var(--ink);}
   .tp details summary::-webkit-details-marker{display:none;}
-  .tp details summary::after{content:"+";font-family:'IBM Plex Mono';color:var(--wood-deep);font-size:20px;flex:none;}
+  .tp details summary::after{content:"+";font-family:'DM Sans';color:var(--wood-deep);font-size:20px;flex:none;}
   .tp details[open] summary::after{content:"–";}
   .tp details p{color:var(--ink-dim);font-size:14.5px;max-width:64ch;margin:14px 0 0;}
 
@@ -176,12 +176,12 @@
   .tp .final-cta h2{font-size:clamp(34px,5vw,58px);max-width:16ch;margin:0 auto 18px;color:var(--cream);}
   .tp .final-cta p{color:var(--cream-dim);max-width:48ch;margin:0 auto 34px;font-size:16px;}
   .tp .final-cta .row{display:flex;justify-content:center;align-items:center;gap:22px;flex-wrap:wrap;}
-  .tp .final-cta .price{font-family:'IBM Plex Mono';font-size:24px;color:var(--wood);}
+  .tp .final-cta .price{font-family:'DM Sans';font-size:24px;color:var(--wood);}
 
   /* footer */
   .tp footer.site{border-top:1px solid var(--line);padding:32px 0;}
   .tp footer.site .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;}
-  .tp footer.site .fine{font-size:12.5px;color:var(--ink-dim);font-family:'IBM Plex Mono';}
+  .tp footer.site .fine{font-size:12.5px;color:var(--ink-dim);font-family:'DM Sans';}
 
   @media (max-width:860px){
     .tp .hero .grid,.tp .story .grid,.tp .finishes .top,.tp .breeds .top{grid-template-columns:1fr;}
