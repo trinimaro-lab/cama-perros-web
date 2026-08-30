@@ -1,0 +1,444 @@
+{%- comment -%}
+  Sección de producto "Taller Pata" — cama elevada de madera para perros.
+
+  Fotos del producto: súbelas en Shopify admin, en la ficha del producto,
+  en este orden exacto (la sección las toma por posición):
+    1. Cama en un salón luminoso (portada / hero)
+    2. Perro echado sobre la plataforma, sin cojín (sección "Bienestar")
+    3. Cama en un salón luminoso, con sofá y planta (galería 1)
+    4. Perro pequeño sobre la cama (galería 2)
+    5. Cama en una terraza (galería 3)
+    6. Cama en terraza con vista a la ciudad (fondo del cierre)
+  Si subes menos de 6 fotos, las que falten muestran la foto de referencia
+  original como respaldo temporal.
+{%- endcomment -%}
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;600;700;800&family=Roboto:wght@400;500;600;700&display=swap">
+<style>
+  .tp{
+    --cream:#f9fbf2;
+    --cream-2:#eef1e2;
+    --cream-dim:rgba(249,251,242,0.72);
+    --sky:#ebfcff;
+    --sky-2:#d8f2f6;
+    --wood:#c68b4f;
+    --wood-deep:#a9713a;
+    --ink:#22282a;
+    --ink-dim:#5c6461;
+    --blue-ink:#2f8fa6;
+    --line:rgba(34,40,42,0.14);
+    font-family:'Roboto',ui-sans-serif,system-ui,sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  .tp *{box-sizing:border-box;}
+  .tp img{max-width:100%;display:block;}
+  .tp .wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
+  .tp h1,.tp h2,.tp h3{font-family:'DM Sans',ui-sans-serif,sans-serif;font-weight:700;letter-spacing:0.01em;text-wrap:balance;margin:0;}
+  .tp .eyebrow{font-family:'DM Sans',ui-sans-serif,sans-serif;font-size:12.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--blue-ink);}
+  .tp a{color:inherit;}
+  .tp .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    background:var(--wood);color:var(--ink);
+    font-family:'Roboto';font-weight:700;font-size:15px;
+    padding:15px 28px;border-radius:999px;border:none;cursor:pointer;
+    text-decoration:none;letter-spacing:0.01em;
+    transition:background .15s ease, transform .15s ease;
+  }
+  .tp .btn:hover{background:var(--wood-deep);}
+  .tp .btn:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
+  .tp .btn[disabled]{background:var(--line);color:var(--ink-dim);cursor:not-allowed;}
+
+  /* utility bar */
+  .tp .utility{background:var(--sky);border-bottom:1px solid var(--line);font-family:'DM Sans';font-size:12px;letter-spacing:0.04em;color:var(--ink-dim);}
+  .tp .utility .wrap{display:flex;justify-content:center;gap:36px;padding:9px 32px;flex-wrap:wrap;text-align:center;}
+
+  /* hero */
+  .tp .hero{padding:56px 0 0;}
+  .tp .hero .grid{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center;}
+  .tp .hero h1{font-size:clamp(40px,5.2vw,68px);line-height:0.98;margin:14px 0 20px;}
+  .tp .hero h1 em{font-style:normal;color:var(--wood-deep);}
+  .tp .hero p.lede{font-size:17.5px;color:var(--ink-dim);max-width:46ch;margin-bottom:28px;}
+  .tp .hero-cta{display:flex;align-items:center;gap:22px;flex-wrap:wrap;}
+  .tp .hero-cta form{margin:0;}
+  .tp .hero-cta .price{font-family:'DM Sans';font-size:26px;font-weight:600;}
+  .tp .hero-cta .price .was{text-decoration:line-through;color:var(--ink-dim);font-weight:400;font-size:0.6em;margin-right:6px;}
+  .tp .hero-cta .price small{display:block;font-size:11px;color:var(--ink-dim);font-weight:400;letter-spacing:0.06em;text-transform:uppercase;margin-top:2px;}
+
+  .tp .hero-frame{position:relative;}
+  .tp .hero-photo{position:relative;aspect-ratio:4/3.1;overflow:hidden;border-radius:6px;background:var(--cream-2);}
+  .tp .hero-photo img{width:100%;height:100%;object-fit:cover;object-position:top;}
+  .tp .dim-svg{position:absolute;inset:0;pointer-events:none;}
+  .tp .dim-label{position:absolute;font-family:'DM Sans';font-size:11.5px;font-weight:600;color:#fff;background:var(--wood);padding:3px 8px;border-radius:2px;letter-spacing:0.02em;}
+
+  /* spec strip */
+  .tp .specs{background:rgba(235,252,255,0.5);margin-top:64px;}
+  .tp .specs .wrap{display:grid;grid-template-columns:repeat(4,1fr);}
+  .tp .spec-item{padding:22px 20px;}
+  .tp .spec-item .num{font-family:'DM Sans';font-size:36px;color:var(--wood-deep);font-weight:600;}
+  .tp .spec-item .lab{font-size:12px;color:var(--ink-dim);letter-spacing:0.03em;margin-top:4px;}
+
+  /* story rows */
+  .tp .story{padding:96px 0;}
+  .tp .story .grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+  .tp .story .eyebrow{margin-bottom:12px;display:block;}
+  .tp .story h2{font-size:clamp(30px,3.4vw,42px);margin-bottom:18px;}
+  .tp .story p{color:var(--ink-dim);font-size:16px;max-width:50ch;}
+  .tp .story ul{list-style:none;margin:22px 0 0;padding:0;display:flex;flex-direction:column;gap:13px;}
+  .tp .story ul li{display:flex;gap:12px;font-size:15px;color:var(--ink);align-items:flex-start;}
+  .tp .story ul li::before{content:"";flex:none;width:7px;height:7px;margin-top:7px;background:var(--wood);border-radius:1px;transform:rotate(45deg);}
+  .tp .story-photo{aspect-ratio:5/4;overflow:hidden;border-radius:4px;border:1px solid var(--line);}
+  .tp .story-photo img{width:100%;height:100%;object-fit:cover;object-position:bottom;}
+
+  /* assembly feature cards */
+  .tp .assembly{padding:96px 0;}
+  .tp .assembly-intro{max-width:640px;margin:0 auto 48px;text-align:center;}
+  .tp .assembly-intro .eyebrow{display:block;margin-bottom:12px;}
+  .tp .assembly-intro h2{font-size:clamp(30px,3.4vw,42px);margin-bottom:16px;}
+  .tp .assembly-intro p{color:var(--ink-dim);font-size:16px;margin:0 auto;}
+  .tp .feature-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+  .tp .feature-card{background:var(--cream-2);border:1px solid var(--line);border-radius:20px;padding:32px 22px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;}
+  .tp .feature-card:hover{transform:translateY(-6px);box-shadow:0 16px 32px -20px rgba(34,40,42,0.28);border-color:var(--wood-deep);}
+  .tp .feature-icon{width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex:none;}
+  .tp .feature-icon svg{width:28px;height:28px;fill:none;}
+  .tp .feature-icon--a{background:rgba(169,113,58,0.14);}
+  .tp .feature-icon--a svg{stroke:var(--wood-deep);}
+  .tp .feature-icon--b{background:rgba(47,143,166,0.14);}
+  .tp .feature-icon--b svg{stroke:var(--blue-ink);}
+  .tp .feature-tag{font-family:'DM Sans';font-weight:700;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;padding:5px 14px;border-radius:100px;}
+  .tp .feature-tag--a{background:rgba(169,113,58,0.12);color:var(--wood-deep);}
+  .tp .feature-tag--b{background:rgba(47,143,166,0.12);color:var(--blue-ink);}
+  .tp .feature-title{font-family:'DM Sans';font-weight:600;font-size:15.5px;line-height:1.45;color:var(--ink);margin:0;}
+
+  /* material (sky band) */
+  .tp .finishes{background:var(--sky);padding:88px 0;}
+  .tp .finishes h2{font-size:clamp(30px,3.4vw,42px);max-width:22ch;margin-bottom:16px;}
+  .tp .finishes p.lede{color:var(--ink-dim);max-width:56ch;font-size:16px;margin-bottom:36px;}
+  .tp .swatches{display:flex;gap:28px;flex-wrap:wrap;}
+  .tp .swatch{display:flex;align-items:center;gap:10px;}
+  .tp .swatch .chip{width:22px;height:22px;border-radius:50%;border:1px solid rgba(0,0,0,0.15);flex:none;}
+  .tp .swatch span{font-family:'DM Sans';font-size:13px;color:var(--ink);}
+  .tp .mat-note{margin-top:36px;padding-top:28px;border-top:1px solid var(--line);font-size:13.5px;color:var(--ink-dim);max-width:60ch;}
+
+  /* lifestyle gallery */
+  .tp .gallery{padding:96px 0;}
+  .tp .gallery .head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:36px;flex-wrap:wrap;}
+  .tp .gallery h2{font-size:clamp(28px,3.2vw,38px);max-width:16ch;}
+  .tp .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .tp .gallery-card{border:1px solid var(--line);border-radius:4px;overflow:hidden;background:var(--cream-2);}
+  .tp .gallery-card .ph{aspect-ratio:6/5;overflow:hidden;}
+  .tp .gallery-card .ph img{width:100%;height:100%;object-fit:cover;}
+  .tp .gallery-card .cap{padding:14px 16px;font-size:13.5px;color:var(--ink-dim);}
+  .tp .gallery-card .cap b{color:var(--ink);font-weight:600;}
+
+  /* breeds */
+  .tp .breeds{background:var(--sky);border-top:1px solid var(--line);padding:80px 0;}
+  .tp .breeds .top{display:grid;grid-template-columns:0.9fr 1.1fr;gap:48px;align-items:start;}
+  .tp .breeds h2{font-size:clamp(28px,3.2vw,38px);margin-bottom:14px;max-width:14ch;}
+  .tp .breeds p{color:var(--ink-dim);max-width:42ch;font-size:15.5px;}
+  .tp .breed-tags{display:flex;flex-wrap:wrap;gap:10px;align-content:flex-start;}
+  .tp .breed-tag{border:1px solid var(--line);border-radius:100px;padding:9px 18px;font-size:14px;color:var(--ink);background:var(--cream);}
+  .tp .breed-tag.range{border-color:var(--wood-deep);color:var(--wood-deep);font-family:'DM Sans';font-size:13px;}
+
+  /* reviews */
+  .tp .reviews{padding:96px 0;border-top:1px solid var(--line);}
+  .tp .reviews .head{max-width:640px;margin:0 auto 48px;text-align:center;}
+  .tp .reviews .head .eyebrow{display:block;margin-bottom:12px;}
+  .tp .reviews .head h2{font-size:clamp(30px,3.4vw,42px);margin-bottom:14px;}
+  .tp .reviews .head p{color:var(--ink-dim);font-size:15.5px;}
+  .tp .review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .tp .review-card{border:1px dashed var(--line);border-radius:16px;padding:28px 24px;background:repeating-linear-gradient(45deg,var(--cream-2),var(--cream-2) 11px,var(--sky-2) 11px,var(--sky-2) 22px);display:flex;flex-direction:column;gap:14px;}
+  .tp .review-card .stars{display:flex;gap:4px;}
+  .tp .review-card .stars svg{width:16px;height:16px;stroke:var(--blue-ink);fill:none;}
+  .tp .review-card .quote{font-style:italic;color:var(--ink-dim);font-size:14.5px;line-height:1.6;margin:0;}
+  .tp .review-card .who{font-family:'DM Sans';font-weight:600;font-size:13.5px;color:var(--ink);}
+  .tp .review-card .who span{display:block;font-family:'Roboto';font-weight:400;color:var(--ink-dim);font-size:12.5px;margin-top:2px;}
+
+  /* faq */
+  .tp .faq{padding:80px 0 100px;border-top:1px solid var(--line);}
+  .tp .faq h2{font-size:clamp(28px,3.2vw,38px);margin-bottom:32px;}
+  .tp .faq-list{max-width:760px;}
+  .tp details{border-bottom:1px solid var(--line);padding:20px 0;}
+  .tp details summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:20px;font-size:16px;font-weight:600;color:var(--ink);}
+  .tp details summary::-webkit-details-marker{display:none;}
+  .tp details summary::after{content:"+";font-family:'DM Sans';color:var(--wood-deep);font-size:20px;flex:none;}
+  .tp details[open] summary::after{content:"–";}
+  .tp details p{color:var(--ink-dim);font-size:14.5px;max-width:64ch;margin:14px 0 0;}
+
+  /* final cta */
+  .tp .final-cta{position:relative;padding:120px 0;overflow:hidden;border-top:1px solid var(--line);color:var(--cream);}
+  .tp .final-cta .bg{position:absolute;inset:0;}
+  .tp .final-cta .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(34,40,42,0.55),rgba(34,40,42,0.9));}
+  .tp .final-cta .content{position:relative;text-align:center;}
+  .tp .final-cta h2{font-size:clamp(34px,5vw,58px);max-width:16ch;margin:0 auto 18px;color:var(--cream);}
+  .tp .final-cta p{color:var(--cream-dim);max-width:48ch;margin:0 auto 34px;font-size:16px;}
+  .tp .final-cta .row{display:flex;justify-content:center;align-items:center;gap:22px;flex-wrap:wrap;}
+  .tp .final-cta .row form{margin:0;}
+  .tp .final-cta .price{font-family:'DM Sans';font-size:24px;color:var(--wood);}
+  .tp .final-cta .price .was{text-decoration:line-through;color:var(--cream-dim);font-weight:400;font-size:0.7em;margin-right:6px;}
+
+  @media (max-width:860px){
+    .tp .hero .grid,.tp .story .grid,.tp .finishes .top,.tp .breeds .top{grid-template-columns:1fr;}
+    .tp .specs .wrap{grid-template-columns:repeat(2,1fr);}
+    .tp .gallery-grid{grid-template-columns:1fr;}
+    .tp .review-grid{grid-template-columns:1fr;}
+    .tp .feature-grid{grid-template-columns:repeat(2,1fr);}
+    .tp .wrap{padding:0 20px;}
+  }
+</style>
+
+{%- assign current_variant = product.selected_or_first_available_variant -%}
+{%- assign on_sale = false -%}
+{%- if product.compare_at_price > product.price -%}{%- assign on_sale = true -%}{%- endif -%}
+
+{%- capture img_1 -%}{% if product.images[0] %}{{ product.images[0] | image_url: width: 1200 }}{% else %}https://i.ibb.co/fz5FLdzF/AI-image-ad-for-Cama-Perros-5.jpg{% endif %}{%- endcapture -%}
+{%- capture img_2 -%}{% if product.images[1] %}{{ product.images[1] | image_url: width: 1000 }}{% else %}https://i.ibb.co/TBP8Q9dw/AI-image-ad-for-Cama-Perros-8.jpg{% endif %}{%- endcapture -%}
+{%- capture img_3 -%}{% if product.images[2] %}{{ product.images[2] | image_url: width: 900 }}{% else %}https://i.ibb.co/sv5gSPgw/AI-image-ad-for-Cama-Perros-9.jpg{% endif %}{%- endcapture -%}
+{%- capture img_4 -%}{% if product.images[3] %}{{ product.images[3] | image_url: width: 900 }}{% else %}https://i.ibb.co/HD2VCzRq/AI-image-ad-for-Cama-Perros-11.jpg{% endif %}{%- endcapture -%}
+{%- capture img_5 -%}{% if product.images[4] %}{{ product.images[4] | image_url: width: 900 }}{% else %}https://i.ibb.co/dwbCdDSn/Chat-GPT-Image-29-ago-2026-11-57-55-p-m.png{% endif %}{%- endcapture -%}
+{%- capture img_6 -%}{% if product.images[5] %}{{ product.images[5] | image_url: width: 1600 }}{% else %}https://i.ibb.co/zhqfHTS0/AI-image-ad-for-Cama-Perros-10.jpg{% endif %}{%- endcapture -%}
+
+<div class="tp">
+
+  <div class="utility">
+    <div class="wrap">
+      <span>Envío a todo Chile · calculado en el carrito</span>
+      <span>Armado sin herramientas · 4 pasos</span>
+      <span>Devolución dentro de 30 días</span>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="wrap grid">
+      <div>
+        <span class="eyebrow">Cama elevada para perros medianos</span>
+        <h1>Una cama a<br>la altura de<br><em>tu perro.</em></h1>
+        <p class="lede">Líneas escandinavas y un sistema de ensamblaje entrelazado que se arma sin herramientas en 4 pasos. Ligera, resistente y en su color natural, sin tinturas ni barnices.</p>
+        <div class="hero-cta">
+          {% form 'product', product, id: 'ProductForm-hero' %}
+            <input type="hidden" name="id" value="{{ current_variant.id }}">
+            <button type="submit" name="add" class="btn" {% unless current_variant.available %}disabled{% endunless %}>
+              {% if current_variant.available %}Añadir al carrito →{% else %}Agotado{% endif %}
+            </button>
+          {% endform %}
+          <div class="price">
+            <span>
+              {% if on_sale %}<span class="was">{{ product.compare_at_price | money }}</span>Ahora {{ product.price | money }}{% else %}{{ product.price | money }}{% endif %}
+            </span>
+            <small>+ envío</small>
+          </div>
+        </div>
+      </div>
+      <div class="hero-frame">
+        <div class="hero-photo">
+          <img src="{{ img_1 }}" alt="{{ product.images[0].alt | default: 'Cama de madera en color natural, en un salón luminoso' }}" style="object-position:center;">
+          <svg class="dim-svg" viewBox="0 0 100 77" preserveAspectRatio="none">
+            <line x1="8" y1="70" x2="92" y2="70" stroke="#2f8fa6" stroke-width="0.35" />
+            <line x1="8" y1="67" x2="8" y2="73" stroke="#2f8fa6" stroke-width="0.35" />
+            <line x1="92" y1="67" x2="92" y2="73" stroke="#2f8fa6" stroke-width="0.35" />
+            <line x1="4" y1="34" x2="4" y2="70" stroke="#2f8fa6" stroke-width="0.35" />
+            <line x1="1" y1="34" x2="7" y2="34" stroke="#2f8fa6" stroke-width="0.35" />
+            <line x1="1" y1="70" x2="7" y2="70" stroke="#2f8fa6" stroke-width="0.35" />
+          </svg>
+          <span class="dim-label" style="left:42%;bottom:20%;">60 × 50 cm</span>
+          <span class="dim-label" style="left:2%;top:44%;">20 cm</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="specs">
+    <div class="wrap">
+      <div class="spec-item"><div class="num">60×50<span style="font-size:17px;"> cm</span></div><div class="lab">Superficie de descanso</div></div>
+      <div class="spec-item"><div class="num">20 <span style="font-size:17px;">cm</span></div><div class="lab">Elevación del suelo</div></div>
+      <div class="spec-item"><div class="num">18 <span style="font-size:17px;">mm</span></div><div class="lab">Madera terciada</div></div>
+      <div class="spec-item"><div class="num">8–25 <span style="font-size:17px;">kg</span></div><div class="lab">Razas medianas</div></div>
+    </div>
+  </section>
+
+  <section class="story">
+    <div class="wrap grid">
+      <div class="story-photo"><img src="{{ img_2 }}" alt="{{ product.images[1].alt | default: 'Perro echado directamente sobre la plataforma de madera, sin cojín' }}"></div>
+      <div>
+        <span class="eyebrow">Bienestar primero</span>
+        <h2>Diseñada pensando en él, no solo en tu salón.</h2>
+        <p>Cada detalle reduce la fricción entre lo bonito y lo funcional: ventilación bajo la plataforma, bordes seguros y ranuras listas para el cojín que ya tienes en casa.</p>
+        <ul>
+          <li>Aberturas de ventilación bajo la plataforma que reducen la humedad y los olores.</li>
+          <li>Bordes y esquinas redondeadas, seguras para patas y hocicos curiosos.</li>
+          <li>Ranuras integradas para sujetar el cojín o colchoneta que tú elijas (no incluido).</li>
+          <li>Grabado decorativo de huella en el lateral, hecho a la medida de la pieza.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="assembly">
+    <div class="wrap">
+      <div class="assembly-intro">
+        <span class="eyebrow">Montaje sin herramientas</span>
+        <h2>Llega plana. Se arma en 4 pasos.</h2>
+        <p>Un sistema de ensamblaje entrelazado —sin tornillos ni destornilladores— une la estructura modular en minutos. Igual de fácil de desmontar si te mudas o si prefieres guardarla.</p>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-icon feature-icon--a"><svg viewBox="0 0 24 24" stroke-width="1.4"><path d="M5 19h14"/><path d="M8 19V9"/><circle cx="8" cy="9" r="1.6"/><path d="M16 19V9"/><circle cx="16" cy="9" r="1.6"/></svg></div>
+          <span class="feature-tag feature-tag--a">Paso 1</span>
+          <h3 class="feature-title">Encaja las patas delanteras y traseras en la base.</h3>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon feature-icon--b"><svg viewBox="0 0 24 24" stroke-width="1.4"><rect x="4" y="5" width="7" height="14" rx="1"/><rect x="13" y="5" width="7" height="14" rx="1"/><path d="M11 9l2 2-2 2 2 2"/></svg></div>
+          <span class="feature-tag feature-tag--b">Paso 2</span>
+          <h3 class="feature-title">Desliza los paneles laterales entrelazados.</h3>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon feature-icon--a"><svg viewBox="0 0 24 24" stroke-width="1.4"><path d="M12 3v10"/><path d="M8 9l4 4 4-4"/><path d="M5 19h14"/><path d="M5 19v-3"/><path d="M19 19v-3"/></svg></div>
+          <span class="feature-tag feature-tag--a">Paso 3</span>
+          <h3 class="feature-title">Encaja el respaldo trasero en las ranuras superiores.</h3>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon feature-icon--b"><svg viewBox="0 0 24 24" stroke-width="1.4"><path d="M4 12h4"/><path d="M16 12h4"/><path d="M8 12l2-2m-2 2l2 2"/><path d="M16 12l-2-2m2 2l-2 2"/><circle cx="12" cy="12" r="1.6"/></svg></div>
+          <span class="feature-tag feature-tag--b">Paso 4</span>
+          <h3 class="feature-title">Presiona las uniones hasta que queden firmes.</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="finishes">
+    <div class="wrap">
+      <div class="top">
+        <div>
+          <span class="eyebrow">Material</span>
+          <h2>Simple y resistente, sin tinturas ni barnices.</h2>
+          <p class="lede">Un acabado natural que aguanta el uso diario de una mascota activa y envejece bien con el tiempo.</p>
+          <div class="swatches">
+            <div class="swatch"><span class="chip" style="background:#c68b4f;"></span><span>Natural</span></div>
+          </div>
+          <p class="mat-note">Se vende sin colchón. Las ranuras laterales están pensadas para que agregues el cojín o colchoneta que prefieras.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery">
+    <div class="wrap">
+      <div class="head">
+        <h2>Encaja en cualquier casa, con cualquier perro.</h2>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-card">
+          <div class="ph" style="padding:0;background:none;"><img src="{{ img_3 }}" alt="{{ product.images[2].alt | default: 'Cama en un salón luminoso, junto a un sofá y una planta' }}"></div>
+          <div class="cap"><b>Interior luminoso</b> · madera en color natural</div>
+        </div>
+        <div class="gallery-card">
+          <div class="ph" style="padding:0;background:none;"><img src="{{ img_4 }}" alt="{{ product.images[3].alt | default: 'Perro pequeño sobre la cama' }}"></div>
+          <div class="cap"><b>También para razas pequeñas</b> · misma base, mismo espacio</div>
+        </div>
+        <div class="gallery-card">
+          <div class="ph" style="padding:0;background:none;"><img src="{{ img_5 }}" alt="{{ product.images[4].alt | default: 'Cama en una terraza con vista a la ciudad' }}"></div>
+          <div class="cap"><b>Dentro o fuera</b> · resistente al uso diario</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="breeds">
+    <div class="wrap top">
+      <div>
+        <h2>¿Para qué perros es ideal?</h2>
+        <p>Pensada para perros de talla mediana, sin importar la raza, que buscan un sitio propio elevado del suelo, lejos de corrientes de aire.</p>
+      </div>
+      <div class="breed-tags">
+        <span class="breed-tag range">8–25 kg aprox.</span>
+        <span class="breed-tag">Talla mediana</span>
+        <span class="breed-tag">Independiente de la raza</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="reviews">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Reseñas</span>
+        <h2>Lo que opinan quienes ya la tienen.</h2>
+        <p>Todavía no hay reseñas publicadas — este espacio queda listo para cuando lleguen las opiniones de tus primeros clientes.</p>
+      </div>
+      <div class="review-grid">
+        {% for i in (1..3) %}
+        <div class="review-card">
+          <div class="stars">
+            <svg viewBox="0 0 24 24" stroke-width="1.4"><path d="M12 3l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L12 17l-5.6 3.1 1.4-6.3-4.8-4.3 6.4-.6z"/></svg>
+            <svg viewBox="0 0 24 24" stroke-width="1.4"><path d="M12 3l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L12 17l-5.6 3.1 1.4-6.3-4.8-4.3 6.4-.6z"/></svg>
+            <svg viewBox="0 0 24 24" stroke-width="1.4"><path d="M12 3l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L12 17l-5.6 3.1 1.4-6.3-4.8-4.3 6.4-.6z"/></svg>
+            <svg viewBox="0 0 24 24" stroke-width="1.4"><path d="M12 3l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L12 17l-5.6 3.1 1.4-6.3-4.8-4.3 6.4-.6z"/></svg>
+            <svg viewBox="0 0 24 24" stroke-width="1.4"><path d="M12 3l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L12 17l-5.6 3.1 1.4-6.3-4.8-4.3 6.4-.6z"/></svg>
+          </div>
+          <p class="quote">"Espacio de ejemplo: reemplaza este texto con una reseña real de tu cliente."</p>
+          <div class="who">Nombre Apellido<span>Raza del perro</span></div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="faq">
+    <div class="wrap">
+      <h2>Antes de comprar</h2>
+      <div class="faq-list">
+        <details open>
+          <summary>¿Incluye el cojín?</summary>
+          <p>No. La cama se vende sin colchón: las ranuras laterales sujetan el cojín o colchoneta que ya tengas, o el que prefieras comprar por separado.</p>
+        </details>
+        <details>
+          <summary>¿Cuánto se tarda en montar?</summary>
+          <p>Unos minutos, sin herramientas. El sistema de piezas entrelazadas se arma en 4 pasos y queda firme desde el primer momento.</p>
+        </details>
+        <details>
+          <summary>¿Puedo pedir una talla personalizada?</summary>
+          <p>Escríbenos después de tu compra y estudiamos medidas a la carta para perros más grandes o más pequeños.</p>
+        </details>
+        <details>
+          <summary>¿Cómo se limpia?</summary>
+          <p>La estructura se limpia con un paño húmedo.</p>
+        </details>
+        <details>
+          <summary>Envíos y devoluciones</summary>
+          <p>Envío a todo Chile; el costo se calcula en el carrito según tu comuna. Si no encaja en tu casa (o en tu perro), tienes 30 días para devolverla.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta" id="comprar">
+    <div class="bg"><img src="{{ img_6 }}" alt="Cama en una terraza con vista a la ciudad" style="width:100%;height:100%;object-fit:cover;object-position:center 65%;"></div>
+    <div class="wrap content">
+      <h2>Dale a tu perro un sitio propio.</h2>
+      <p>Hecha en madera terciada, armable sin herramientas en 4 pasos, en el color natural de la madera.</p>
+      <div class="row">
+        {% form 'product', product, id: 'ProductForm-cta' %}
+          <input type="hidden" name="id" value="{{ current_variant.id }}">
+          <button type="submit" name="add" class="btn" {% unless current_variant.available %}disabled{% endunless %}>
+            {% if current_variant.available %}Añadir al carrito →{% else %}Agotado{% endif %}
+          </button>
+        {% endform %}
+        <span class="price">
+          {% if on_sale %}<span class="was">{{ product.compare_at_price | money }}</span>Ahora {{ product.price | money }}{% else %}{{ product.price | money }}{% endif %} · + envío
+        </span>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+{% schema %}
+{
+  "name": "Taller Pata - Producto",
+  "settings": [],
+  "presets": [
+    { "name": "Taller Pata - Producto" }
+  ]
+}
+{% endschema %}
