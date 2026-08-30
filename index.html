@@ -174,6 +174,24 @@
   .tp .breed-tag{border:1px solid var(--line);border-radius:100px;padding:9px 18px;font-size:14px;color:var(--ink);background:var(--cream);}
   .tp .breed-tag.range{border-color:var(--wood-deep);color:var(--wood-deep);font-family:'DM Sans';font-size:13px;}
 
+  /* reviews */
+  .tp .reviews{padding:96px 0;border-top:1px solid var(--line);}
+  .tp .reviews .head{max-width:640px;margin:0 auto 48px;text-align:center;}
+  .tp .reviews .head .eyebrow{display:block;margin-bottom:12px;}
+  .tp .reviews .head h2{font-size:clamp(30px,3.4vw,42px);margin-bottom:14px;}
+  .tp .reviews .head p{color:var(--ink-dim);font-size:15.5px;}
+  .tp .review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .tp .review-card{
+    border:1px dashed var(--line);border-radius:16px;padding:28px 24px;
+    background:repeating-linear-gradient(45deg,var(--cream-2),var(--cream-2) 11px,var(--sky-2) 11px,var(--sky-2) 22px);
+    display:flex;flex-direction:column;gap:14px;
+  }
+  .tp .review-card .stars{display:flex;gap:4px;}
+  .tp .review-card .stars svg{width:16px;height:16px;stroke:var(--blue-ink);fill:none;}
+  .tp .review-card .quote{font-style:italic;color:var(--ink-dim);font-size:14.5px;line-height:1.6;margin:0;}
+  .tp .review-card .who{font-family:'DM Sans';font-weight:600;font-size:13.5px;color:var(--ink);}
+  .tp .review-card .who span{display:block;font-family:'Roboto';font-weight:400;color:var(--ink-dim);font-size:12.5px;margin-top:2px;}
+
   /* faq */
   .tp .faq{padding:80px 0 100px;border-top:1px solid var(--line);}
   .tp .faq h2{font-size:clamp(28px,3.2vw,38px);margin-bottom:32px;}
@@ -205,6 +223,7 @@
     .tp .story.reverse .grid{direction:ltr;}
     .tp .specs .wrap{grid-template-columns:repeat(2,1fr);}
     .tp .gallery-grid{grid-template-columns:1fr;}
+    .tp .review-grid{grid-template-columns:1fr;}
     .tp .feature-grid{grid-template-columns:repeat(2,1fr);}
     .tp .wrap{padding:0 20px;}
   }
@@ -373,6 +392,51 @@
         <span class="breed-tag">Pastor Australiano</span>
         <span class="breed-tag">Bulldog Inglés</span>
         <span class="breed-tag">Y razas de tamaño similar</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="reviews">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Reseñas</span>
+        <h2>Lo que opinan quienes ya la tienen.</h2>
+        <p>Todavía no hay reseñas publicadas — este espacio queda listo para cuando lleguen las opiniones de tus primeros clientes.</p>
+      </div>
+      <div class="review-grid">
+        <div class="review-card">
+          <div class="stars">
+            <svg viewBox="0 0 24 24" stroke-width="1.4"><path d="M12 3l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L12 17l-5.6 3.1 1.4-6.3-4.8-4.3 6.4-.6z"/></svg>
+            <svg viewBox="0 0 24 24" stroke-width="1.4"><path d="M12 3l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L12 17l-5.6 3.1 1.4-6.3-4.8-4.3 6.4-.6z"/></svg>
+            <svg viewBox="0 0 24 24" stroke-width="1.4"><path d="M12 3l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L12 17l-5.6 3.1 1.4-6.3-4.8-4.3 6.4-.6z"/></svg>
+            <svg viewBox="0 0 24 24" stroke-width="1.4"><path d="M12 3l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L12 17l-5.6 3.1 1.4-6.3-4.8-4.3 6.4-.6z"/></svg>
+            <svg viewBox="0 0 24 24" stroke-width="1.4"><path d="M12 3l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L12 17l-5.6 3.1 1.4-6.3-4.8-4.3 6.4-.6z"/></svg>
+          </div>
+          <p class="quote">"Espacio de ejemplo: reemplaza este texto con una reseña real de tu cliente."</p>
+          <div class="who">Nombre Apellido<span>Raza del perro</span></div>
+        </div>
+        <div class="review-card">
+          <div class="stars">
+            <svg viewBox="0 0 24 24" stroke-width="1.4"><path d="M12 3l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L12 17l-5.6 3.1 1.4-6.3-4.8-4.3 6.4-.6z"/></svg>
+            <svg viewBox="0 0 24 24" stroke-width="1.4"><path d="M12 3l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L12 17l-5.6 3.1 1.4-6.3-4.8-4.3 6.4-.6z"/></svg>
+            <svg viewBox="0 0 24 24" stroke-width="1.4"><path d="M12 3l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L12 17l-5.6 3.1 1.4-6.3-4.8-4.3 6.4-.6z"/></svg>
+            <svg viewBox="0 0 24 24" stroke-width="1.4"><path d="M12 3l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L12 17l-5.6 3.1 1.4-6.3-4.8-4.3 6.4-.6z"/></svg>
+            <svg viewBox="0 0 24 24" stroke-width="1.4"><path d="M12 3l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L12 17l-5.6 3.1 1.4-6.3-4.8-4.3 6.4-.6z"/></svg>
+          </div>
+          <p class="quote">"Espacio de ejemplo: reemplaza este texto con una reseña real de tu cliente."</p>
+          <div class="who">Nombre Apellido<span>Raza del perro</span></div>
+        </div>
+        <div class="review-card">
+          <div class="stars">
+            <svg viewBox="0 0 24 24" stroke-width="1.4"><path d="M12 3l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L12 17l-5.6 3.1 1.4-6.3-4.8-4.3 6.4-.6z"/></svg>
+            <svg viewBox="0 0 24 24" stroke-width="1.4"><path d="M12 3l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L12 17l-5.6 3.1 1.4-6.3-4.8-4.3 6.4-.6z"/></svg>
+            <svg viewBox="0 0 24 24" stroke-width="1.4"><path d="M12 3l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L12 17l-5.6 3.1 1.4-6.3-4.8-4.3 6.4-.6z"/></svg>
+            <svg viewBox="0 0 24 24" stroke-width="1.4"><path d="M12 3l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L12 17l-5.6 3.1 1.4-6.3-4.8-4.3 6.4-.6z"/></svg>
+            <svg viewBox="0 0 24 24" stroke-width="1.4"><path d="M12 3l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L12 17l-5.6 3.1 1.4-6.3-4.8-4.3 6.4-.6z"/></svg>
+          </div>
+          <p class="quote">"Espacio de ejemplo: reemplaza este texto con una reseña real de tu cliente."</p>
+          <div class="who">Nombre Apellido<span>Raza del perro</span></div>
+        </div>
       </div>
     </div>
   </section>
