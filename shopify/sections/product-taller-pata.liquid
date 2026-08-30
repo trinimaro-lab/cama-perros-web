@@ -1,5 +1,8 @@
 {%- comment -%}
   Sección de producto "Taller Pata" — cama elevada de madera para perros.
+  Todos los textos de esta sección son editables desde:
+  Tienda online → Temas → Personalizar → navega a esta página de producto →
+  haz clic en "Taller Pata - Producto" en el panel izquierdo.
 
   Fotos del producto: súbelas en Shopify admin, en la ficha del producto,
   en este orden exacto (la sección las toma por posición):
@@ -189,6 +192,7 @@
   }
 </style>
 
+{%- assign s = section.settings -%}
 {%- assign current_variant = product.selected_or_first_available_variant -%}
 {%- assign on_sale = false -%}
 {%- if product.compare_at_price > product.price -%}{%- assign on_sale = true -%}{%- endif -%}
@@ -204,30 +208,30 @@
 
   <div class="utility">
     <div class="wrap">
-      <span>Envío a todo Chile · calculado en el carrito</span>
-      <span>Armado sin herramientas · 4 pasos</span>
-      <span>Devolución dentro de 30 días</span>
+      <span>{{ s.utility_1 }}</span>
+      <span>{{ s.utility_2 }}</span>
+      <span>{{ s.utility_3 }}</span>
     </div>
   </div>
 
   <section class="hero">
     <div class="wrap grid">
       <div>
-        <span class="eyebrow">Cama elevada para perros medianos</span>
-        <h1>Una cama a<br>la altura de<br><em>tu perro.</em></h1>
-        <p class="lede">Líneas escandinavas y un sistema de ensamblaje entrelazado que se arma sin herramientas en 4 pasos. Ligera, resistente y en su color natural, sin tinturas ni barnices.</p>
+        <span class="eyebrow">{{ s.hero_eyebrow }}</span>
+        <h1>{{ s.hero_heading_1 }}<br>{{ s.hero_heading_2 }}<br><em>{{ s.hero_heading_3 }}</em></h1>
+        <p class="lede">{{ s.hero_lede }}</p>
         <div class="hero-cta">
           {% form 'product', product, id: 'ProductForm-hero' %}
             <input type="hidden" name="id" value="{{ current_variant.id }}">
             <button type="submit" name="add" class="btn" {% unless current_variant.available %}disabled{% endunless %}>
-              {% if current_variant.available %}Añadir al carrito →{% else %}Agotado{% endif %}
+              {% if current_variant.available %}{{ s.btn_label }}{% else %}{{ s.btn_sold_out_label }}{% endif %}
             </button>
           {% endform %}
           <div class="price">
             <span>
-              {% if on_sale %}<span class="was">{{ product.compare_at_price | money }}</span>Ahora {{ product.price | money }}{% else %}{{ product.price | money }}{% endif %}
+              {% if on_sale %}<span class="was">{{ product.compare_at_price | money }}</span>{{ s.now_label }} {{ product.price | money }}{% else %}{{ product.price | money }}{% endif %}
             </span>
-            <small>+ envío</small>
+            <small>{{ s.price_note }}</small>
           </div>
         </div>
       </div>
@@ -242,8 +246,8 @@
             <line x1="1" y1="34" x2="7" y2="34" stroke="#2f8fa6" stroke-width="0.35" />
             <line x1="1" y1="70" x2="7" y2="70" stroke="#2f8fa6" stroke-width="0.35" />
           </svg>
-          <span class="dim-label" style="left:42%;bottom:20%;">60 × 50 cm</span>
-          <span class="dim-label" style="left:2%;top:44%;">20 cm</span>
+          <span class="dim-label" style="left:42%;bottom:20%;">{{ s.dim_label_1 }}</span>
+          <span class="dim-label" style="left:2%;top:44%;">{{ s.dim_label_2 }}</span>
         </div>
       </div>
     </div>
@@ -251,10 +255,10 @@
 
   <section class="specs">
     <div class="wrap">
-      <div class="spec-item"><div class="num">60×50<span style="font-size:17px;"> cm</span></div><div class="lab">Superficie de descanso</div></div>
-      <div class="spec-item"><div class="num">20 <span style="font-size:17px;">cm</span></div><div class="lab">Elevación del suelo</div></div>
-      <div class="spec-item"><div class="num">18 <span style="font-size:17px;">mm</span></div><div class="lab">Madera terciada</div></div>
-      <div class="spec-item"><div class="num">8–25 <span style="font-size:17px;">kg</span></div><div class="lab">Razas medianas</div></div>
+      <div class="spec-item"><div class="num">{{ s.spec1_num }}<span style="font-size:17px;"> {{ s.spec1_unit }}</span></div><div class="lab">{{ s.spec1_label }}</div></div>
+      <div class="spec-item"><div class="num">{{ s.spec2_num }} <span style="font-size:17px;">{{ s.spec2_unit }}</span></div><div class="lab">{{ s.spec2_label }}</div></div>
+      <div class="spec-item"><div class="num">{{ s.spec3_num }} <span style="font-size:17px;">{{ s.spec3_unit }}</span></div><div class="lab">{{ s.spec3_label }}</div></div>
+      <div class="spec-item"><div class="num">{{ s.spec4_num }} <span style="font-size:17px;">{{ s.spec4_unit }}</span></div><div class="lab">{{ s.spec4_label }}</div></div>
     </div>
   </section>
 
@@ -262,14 +266,14 @@
     <div class="wrap grid">
       <div class="story-photo"><img src="{{ img_2 }}" alt="{{ product.images[1].alt | default: 'Perro echado directamente sobre la plataforma de madera, sin cojín' }}"></div>
       <div>
-        <span class="eyebrow">Bienestar primero</span>
-        <h2>Diseñada pensando en él, no solo en tu salón.</h2>
-        <p>Cada detalle reduce la fricción entre lo bonito y lo funcional: ventilación bajo la plataforma, bordes seguros y ranuras listas para el cojín que ya tienes en casa.</p>
+        <span class="eyebrow">{{ s.story_eyebrow }}</span>
+        <h2>{{ s.story_heading }}</h2>
+        <p>{{ s.story_text }}</p>
         <ul>
-          <li>Aberturas de ventilación bajo la plataforma que reducen la humedad y los olores.</li>
-          <li>Bordes y esquinas redondeadas, seguras para patas y hocicos curiosos.</li>
-          <li>Ranuras integradas para sujetar el cojín o colchoneta que tú elijas (no incluido).</li>
-          <li>Grabado decorativo de huella en el lateral, hecho a la medida de la pieza.</li>
+          <li>{{ s.story_li1 }}</li>
+          <li>{{ s.story_li2 }}</li>
+          <li>{{ s.story_li3 }}</li>
+          <li>{{ s.story_li4 }}</li>
         </ul>
       </div>
     </div>
@@ -278,30 +282,30 @@
   <section class="assembly">
     <div class="wrap">
       <div class="assembly-intro">
-        <span class="eyebrow">Montaje sin herramientas</span>
-        <h2>Llega plana. Se arma en 4 pasos.</h2>
-        <p>Un sistema de ensamblaje entrelazado —sin tornillos ni destornilladores— une la estructura modular en minutos. Igual de fácil de desmontar si te mudas o si prefieres guardarla.</p>
+        <span class="eyebrow">{{ s.assembly_eyebrow }}</span>
+        <h2>{{ s.assembly_heading }}</h2>
+        <p>{{ s.assembly_text }}</p>
       </div>
       <div class="feature-grid">
         <div class="feature-card">
           <div class="feature-icon feature-icon--a"><svg viewBox="0 0 24 24" stroke-width="1.4"><path d="M5 19h14"/><path d="M8 19V9"/><circle cx="8" cy="9" r="1.6"/><path d="M16 19V9"/><circle cx="16" cy="9" r="1.6"/></svg></div>
-          <span class="feature-tag feature-tag--a">Paso 1</span>
-          <h3 class="feature-title">Encaja las patas delanteras y traseras en la base.</h3>
+          <span class="feature-tag feature-tag--a">{{ s.step1_tag }}</span>
+          <h3 class="feature-title">{{ s.step1_title }}</h3>
         </div>
         <div class="feature-card">
           <div class="feature-icon feature-icon--b"><svg viewBox="0 0 24 24" stroke-width="1.4"><rect x="4" y="5" width="7" height="14" rx="1"/><rect x="13" y="5" width="7" height="14" rx="1"/><path d="M11 9l2 2-2 2 2 2"/></svg></div>
-          <span class="feature-tag feature-tag--b">Paso 2</span>
-          <h3 class="feature-title">Desliza los paneles laterales entrelazados.</h3>
+          <span class="feature-tag feature-tag--b">{{ s.step2_tag }}</span>
+          <h3 class="feature-title">{{ s.step2_title }}</h3>
         </div>
         <div class="feature-card">
           <div class="feature-icon feature-icon--a"><svg viewBox="0 0 24 24" stroke-width="1.4"><path d="M12 3v10"/><path d="M8 9l4 4 4-4"/><path d="M5 19h14"/><path d="M5 19v-3"/><path d="M19 19v-3"/></svg></div>
-          <span class="feature-tag feature-tag--a">Paso 3</span>
-          <h3 class="feature-title">Encaja el respaldo trasero en las ranuras superiores.</h3>
+          <span class="feature-tag feature-tag--a">{{ s.step3_tag }}</span>
+          <h3 class="feature-title">{{ s.step3_title }}</h3>
         </div>
         <div class="feature-card">
           <div class="feature-icon feature-icon--b"><svg viewBox="0 0 24 24" stroke-width="1.4"><path d="M4 12h4"/><path d="M16 12h4"/><path d="M8 12l2-2m-2 2l2 2"/><path d="M16 12l-2-2m2 2l-2 2"/><circle cx="12" cy="12" r="1.6"/></svg></div>
-          <span class="feature-tag feature-tag--b">Paso 4</span>
-          <h3 class="feature-title">Presiona las uniones hasta que queden firmes.</h3>
+          <span class="feature-tag feature-tag--b">{{ s.step4_tag }}</span>
+          <h3 class="feature-title">{{ s.step4_title }}</h3>
         </div>
       </div>
     </div>
@@ -311,13 +315,13 @@
     <div class="wrap">
       <div class="top">
         <div>
-          <span class="eyebrow">Material</span>
-          <h2>Simple y resistente, sin tinturas ni barnices.</h2>
-          <p class="lede">Un acabado natural que aguanta el uso diario de una mascota activa y envejece bien con el tiempo.</p>
+          <span class="eyebrow">{{ s.material_eyebrow }}</span>
+          <h2>{{ s.material_heading }}</h2>
+          <p class="lede">{{ s.material_text }}</p>
           <div class="swatches">
-            <div class="swatch"><span class="chip" style="background:#c68b4f;"></span><span>Natural</span></div>
+            <div class="swatch"><span class="chip" style="background:#c68b4f;"></span><span>{{ s.material_swatch_label }}</span></div>
           </div>
-          <p class="mat-note">Se vende sin colchón. Las ranuras laterales están pensadas para que agregues el cojín o colchoneta que prefieras.</p>
+          <p class="mat-note">{{ s.material_note }}</p>
         </div>
       </div>
     </div>
@@ -326,20 +330,20 @@
   <section class="gallery">
     <div class="wrap">
       <div class="head">
-        <h2>Encaja en cualquier casa, con cualquier perro.</h2>
+        <h2>{{ s.gallery_heading }}</h2>
       </div>
       <div class="gallery-grid">
         <div class="gallery-card">
           <div class="ph" style="padding:0;background:none;"><img src="{{ img_3 }}" alt="{{ product.images[2].alt | default: 'Cama en un salón luminoso, junto a un sofá y una planta' }}"></div>
-          <div class="cap"><b>Interior luminoso</b> · madera en color natural</div>
+          <div class="cap"><b>{{ s.gallery1_cap_bold }}</b> · {{ s.gallery1_cap_rest }}</div>
         </div>
         <div class="gallery-card">
           <div class="ph" style="padding:0;background:none;"><img src="{{ img_4 }}" alt="{{ product.images[3].alt | default: 'Perro pequeño sobre la cama' }}"></div>
-          <div class="cap"><b>También para razas pequeñas</b> · misma base, mismo espacio</div>
+          <div class="cap"><b>{{ s.gallery2_cap_bold }}</b> · {{ s.gallery2_cap_rest }}</div>
         </div>
         <div class="gallery-card">
           <div class="ph" style="padding:0;background:none;"><img src="{{ img_5 }}" alt="{{ product.images[4].alt | default: 'Cama en una terraza con vista a la ciudad' }}"></div>
-          <div class="cap"><b>Dentro o fuera</b> · resistente al uso diario</div>
+          <div class="cap"><b>{{ s.gallery3_cap_bold }}</b> · {{ s.gallery3_cap_rest }}</div>
         </div>
       </div>
     </div>
@@ -348,13 +352,13 @@
   <section class="breeds">
     <div class="wrap top">
       <div>
-        <h2>¿Para qué perros es ideal?</h2>
-        <p>Pensada para perros de talla mediana, sin importar la raza, que buscan un sitio propio elevado del suelo, lejos de corrientes de aire.</p>
+        <h2>{{ s.breeds_heading }}</h2>
+        <p>{{ s.breeds_text }}</p>
       </div>
       <div class="breed-tags">
-        <span class="breed-tag range">8–25 kg aprox.</span>
-        <span class="breed-tag">Talla mediana</span>
-        <span class="breed-tag">Independiente de la raza</span>
+        <span class="breed-tag range">{{ s.breed_tag_range }}</span>
+        <span class="breed-tag">{{ s.breed_tag_1 }}</span>
+        <span class="breed-tag">{{ s.breed_tag_2 }}</span>
       </div>
     </div>
   </section>
@@ -362,9 +366,9 @@
   <section class="reviews">
     <div class="wrap">
       <div class="head">
-        <span class="eyebrow">Reseñas</span>
-        <h2>Lo que opinan quienes ya la tienen.</h2>
-        <p>Todavía no hay reseñas publicadas — este espacio queda listo para cuando lleguen las opiniones de tus primeros clientes.</p>
+        <span class="eyebrow">{{ s.reviews_eyebrow }}</span>
+        <h2>{{ s.reviews_heading }}</h2>
+        <p>{{ s.reviews_text }}</p>
       </div>
       <div class="review-grid">
         {% for i in (1..3) %}
@@ -376,8 +380,8 @@
             <svg viewBox="0 0 24 24" stroke-width="1.4"><path d="M12 3l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L12 17l-5.6 3.1 1.4-6.3-4.8-4.3 6.4-.6z"/></svg>
             <svg viewBox="0 0 24 24" stroke-width="1.4"><path d="M12 3l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L12 17l-5.6 3.1 1.4-6.3-4.8-4.3 6.4-.6z"/></svg>
           </div>
-          <p class="quote">"Espacio de ejemplo: reemplaza este texto con una reseña real de tu cliente."</p>
-          <div class="who">Nombre Apellido<span>Raza del perro</span></div>
+          <p class="quote">"{{ s.review_placeholder_text }}"</p>
+          <div class="who">{{ s.review_placeholder_name }}<span>{{ s.review_placeholder_breed }}</span></div>
         </div>
         {% endfor %}
       </div>
@@ -386,27 +390,27 @@
 
   <section class="faq">
     <div class="wrap">
-      <h2>Antes de comprar</h2>
+      <h2>{{ s.faq_heading }}</h2>
       <div class="faq-list">
         <details open>
-          <summary>¿Incluye el cojín?</summary>
-          <p>No. La cama se vende sin colchón: las ranuras laterales sujetan el cojín o colchoneta que ya tengas, o el que prefieras comprar por separado.</p>
+          <summary>{{ s.faq1_q }}</summary>
+          <p>{{ s.faq1_a }}</p>
         </details>
         <details>
-          <summary>¿Cuánto se tarda en montar?</summary>
-          <p>Unos minutos, sin herramientas. El sistema de piezas entrelazadas se arma en 4 pasos y queda firme desde el primer momento.</p>
+          <summary>{{ s.faq2_q }}</summary>
+          <p>{{ s.faq2_a }}</p>
         </details>
         <details>
-          <summary>¿Puedo pedir una talla personalizada?</summary>
-          <p>Escríbenos después de tu compra y estudiamos medidas a la carta para perros más grandes o más pequeños.</p>
+          <summary>{{ s.faq3_q }}</summary>
+          <p>{{ s.faq3_a }}</p>
         </details>
         <details>
-          <summary>¿Cómo se limpia?</summary>
-          <p>La estructura se limpia con un paño húmedo.</p>
+          <summary>{{ s.faq4_q }}</summary>
+          <p>{{ s.faq4_a }}</p>
         </details>
         <details>
-          <summary>Envíos y devoluciones</summary>
-          <p>Envío a todo Chile; el costo se calcula en el carrito según tu comuna. Si no encaja en tu casa (o en tu perro), tienes 30 días para devolverla.</p>
+          <summary>{{ s.faq5_q }}</summary>
+          <p>{{ s.faq5_a }}</p>
         </details>
       </div>
     </div>
@@ -415,17 +419,17 @@
   <section class="final-cta" id="comprar">
     <div class="bg"><img src="{{ img_6 }}" alt="Cama en una terraza con vista a la ciudad" style="width:100%;height:100%;object-fit:cover;object-position:center 65%;"></div>
     <div class="wrap content">
-      <h2>Dale a tu perro un sitio propio.</h2>
-      <p>Hecha en madera terciada, armable sin herramientas en 4 pasos, en el color natural de la madera.</p>
+      <h2>{{ s.final_heading }}</h2>
+      <p>{{ s.final_text }}</p>
       <div class="row">
         {% form 'product', product, id: 'ProductForm-cta' %}
           <input type="hidden" name="id" value="{{ current_variant.id }}">
           <button type="submit" name="add" class="btn" {% unless current_variant.available %}disabled{% endunless %}>
-            {% if current_variant.available %}Añadir al carrito →{% else %}Agotado{% endif %}
+            {% if current_variant.available %}{{ s.btn_label }}{% else %}{{ s.btn_sold_out_label }}{% endif %}
           </button>
         {% endform %}
         <span class="price">
-          {% if on_sale %}<span class="was">{{ product.compare_at_price | money }}</span>Ahora {{ product.price | money }}{% else %}{{ product.price | money }}{% endif %} · + envío
+          {% if on_sale %}<span class="was">{{ product.compare_at_price | money }}</span>{{ s.now_label }} {{ product.price | money }}{% else %}{{ product.price | money }}{% endif %} · {{ s.price_note }}
         </span>
       </div>
     </div>
@@ -436,7 +440,109 @@
 {% schema %}
 {
   "name": "Taller Pata - Producto",
-  "settings": [],
+  "settings": [
+    { "type": "header", "content": "Barra de utilidad" },
+    { "type": "text", "id": "utility_1", "label": "Texto 1", "default": "Envío a todo Chile · calculado en el carrito" },
+    { "type": "text", "id": "utility_2", "label": "Texto 2", "default": "Armado sin herramientas · 4 pasos" },
+    { "type": "text", "id": "utility_3", "label": "Texto 3", "default": "Devolución dentro de 30 días" },
+
+    { "type": "header", "content": "Hero" },
+    { "type": "text", "id": "hero_eyebrow", "label": "Etiqueta superior", "default": "Cama elevada para perros medianos" },
+    { "type": "text", "id": "hero_heading_1", "label": "Título — línea 1", "default": "Una cama a" },
+    { "type": "text", "id": "hero_heading_2", "label": "Título — línea 2", "default": "la altura de" },
+    { "type": "text", "id": "hero_heading_3", "label": "Título — línea 3 (resaltada)", "default": "tu perro." },
+    { "type": "textarea", "id": "hero_lede", "label": "Texto debajo del título", "default": "Líneas escandinavas y un sistema de ensamblaje entrelazado que se arma sin herramientas en 4 pasos. Ligera, resistente y en su color natural, sin tinturas ni barnices." },
+    { "type": "text", "id": "btn_label", "label": "Texto del botón de compra", "default": "Añadir al carrito →" },
+    { "type": "text", "id": "btn_sold_out_label", "label": "Texto del botón cuando no hay stock", "default": "Agotado" },
+    { "type": "text", "id": "now_label", "label": "Palabra antes del precio en oferta", "default": "Ahora" },
+    { "type": "text", "id": "price_note", "label": "Nota junto al precio", "default": "+ envío" },
+    { "type": "text", "id": "dim_label_1", "label": "Etiqueta de medida — ancho", "default": "60 × 50 cm" },
+    { "type": "text", "id": "dim_label_2", "label": "Etiqueta de medida — alto", "default": "20 cm" },
+
+    { "type": "header", "content": "Franja de especificaciones" },
+    { "type": "text", "id": "spec1_num", "label": "Dato 1 — número", "default": "60×50" },
+    { "type": "text", "id": "spec1_unit", "label": "Dato 1 — unidad", "default": "cm" },
+    { "type": "text", "id": "spec1_label", "label": "Dato 1 — etiqueta", "default": "Superficie de descanso" },
+    { "type": "text", "id": "spec2_num", "label": "Dato 2 — número", "default": "20" },
+    { "type": "text", "id": "spec2_unit", "label": "Dato 2 — unidad", "default": "cm" },
+    { "type": "text", "id": "spec2_label", "label": "Dato 2 — etiqueta", "default": "Elevación del suelo" },
+    { "type": "text", "id": "spec3_num", "label": "Dato 3 — número", "default": "18" },
+    { "type": "text", "id": "spec3_unit", "label": "Dato 3 — unidad", "default": "mm" },
+    { "type": "text", "id": "spec3_label", "label": "Dato 3 — etiqueta", "default": "Madera terciada" },
+    { "type": "text", "id": "spec4_num", "label": "Dato 4 — número", "default": "8–25" },
+    { "type": "text", "id": "spec4_unit", "label": "Dato 4 — unidad", "default": "kg" },
+    { "type": "text", "id": "spec4_label", "label": "Dato 4 — etiqueta", "default": "Razas medianas" },
+
+    { "type": "header", "content": "Bienestar" },
+    { "type": "text", "id": "story_eyebrow", "label": "Etiqueta superior", "default": "Bienestar primero" },
+    { "type": "text", "id": "story_heading", "label": "Título", "default": "Diseñada pensando en él, no solo en tu salón." },
+    { "type": "textarea", "id": "story_text", "label": "Párrafo", "default": "Cada detalle reduce la fricción entre lo bonito y lo funcional: ventilación bajo la plataforma, bordes seguros y ranuras listas para el cojín que ya tienes en casa." },
+    { "type": "text", "id": "story_li1", "label": "Viñeta 1", "default": "Aberturas de ventilación bajo la plataforma que reducen la humedad y los olores." },
+    { "type": "text", "id": "story_li2", "label": "Viñeta 2", "default": "Bordes y esquinas redondeadas, seguras para patas y hocicos curiosos." },
+    { "type": "text", "id": "story_li3", "label": "Viñeta 3", "default": "Ranuras integradas para sujetar el cojín o colchoneta que tú elijas (no incluido)." },
+    { "type": "text", "id": "story_li4", "label": "Viñeta 4", "default": "Grabado decorativo de huella en el lateral, hecho a la medida de la pieza." },
+
+    { "type": "header", "content": "Montaje" },
+    { "type": "text", "id": "assembly_eyebrow", "label": "Etiqueta superior", "default": "Montaje sin herramientas" },
+    { "type": "text", "id": "assembly_heading", "label": "Título", "default": "Llega plana. Se arma en 4 pasos." },
+    { "type": "textarea", "id": "assembly_text", "label": "Párrafo", "default": "Un sistema de ensamblaje entrelazado —sin tornillos ni destornilladores— une la estructura modular en minutos. Igual de fácil de desmontar si te mudas o si prefieres guardarla." },
+    { "type": "text", "id": "step1_tag", "label": "Paso 1 — etiqueta", "default": "Paso 1" },
+    { "type": "text", "id": "step1_title", "label": "Paso 1 — texto", "default": "Encaja las patas delanteras y traseras en la base." },
+    { "type": "text", "id": "step2_tag", "label": "Paso 2 — etiqueta", "default": "Paso 2" },
+    { "type": "text", "id": "step2_title", "label": "Paso 2 — texto", "default": "Desliza los paneles laterales entrelazados." },
+    { "type": "text", "id": "step3_tag", "label": "Paso 3 — etiqueta", "default": "Paso 3" },
+    { "type": "text", "id": "step3_title", "label": "Paso 3 — texto", "default": "Encaja el respaldo trasero en las ranuras superiores." },
+    { "type": "text", "id": "step4_tag", "label": "Paso 4 — etiqueta", "default": "Paso 4" },
+    { "type": "text", "id": "step4_title", "label": "Paso 4 — texto", "default": "Presiona las uniones hasta que queden firmes." },
+
+    { "type": "header", "content": "Material" },
+    { "type": "text", "id": "material_eyebrow", "label": "Etiqueta superior", "default": "Material" },
+    { "type": "text", "id": "material_heading", "label": "Título", "default": "Simple y resistente, sin tinturas ni barnices." },
+    { "type": "textarea", "id": "material_text", "label": "Párrafo", "default": "Un acabado natural que aguanta el uso diario de una mascota activa y envejece bien con el tiempo." },
+    { "type": "text", "id": "material_swatch_label", "label": "Nombre del color", "default": "Natural" },
+    { "type": "textarea", "id": "material_note", "label": "Nota final", "default": "Se vende sin colchón. Las ranuras laterales están pensadas para que agregues el cojín o colchoneta que prefieras." },
+
+    { "type": "header", "content": "Galería" },
+    { "type": "text", "id": "gallery_heading", "label": "Título", "default": "Encaja en cualquier casa, con cualquier perro." },
+    { "type": "text", "id": "gallery1_cap_bold", "label": "Foto 1 — texto destacado", "default": "Interior luminoso" },
+    { "type": "text", "id": "gallery1_cap_rest", "label": "Foto 1 — resto del texto", "default": "madera en color natural" },
+    { "type": "text", "id": "gallery2_cap_bold", "label": "Foto 2 — texto destacado", "default": "También para razas pequeñas" },
+    { "type": "text", "id": "gallery2_cap_rest", "label": "Foto 2 — resto del texto", "default": "misma base, mismo espacio" },
+    { "type": "text", "id": "gallery3_cap_bold", "label": "Foto 3 — texto destacado", "default": "Dentro o fuera" },
+    { "type": "text", "id": "gallery3_cap_rest", "label": "Foto 3 — resto del texto", "default": "resistente al uso diario" },
+
+    { "type": "header", "content": "Tamaño de perro" },
+    { "type": "text", "id": "breeds_heading", "label": "Título", "default": "¿Para qué perros es ideal?" },
+    { "type": "textarea", "id": "breeds_text", "label": "Párrafo", "default": "Pensada para perros de talla mediana, sin importar la raza, que buscan un sitio propio elevado del suelo, lejos de corrientes de aire." },
+    { "type": "text", "id": "breed_tag_range", "label": "Etiqueta — rango de peso", "default": "8–25 kg aprox." },
+    { "type": "text", "id": "breed_tag_1", "label": "Etiqueta 2", "default": "Talla mediana" },
+    { "type": "text", "id": "breed_tag_2", "label": "Etiqueta 3", "default": "Independiente de la raza" },
+
+    { "type": "header", "content": "Reseñas" },
+    { "type": "text", "id": "reviews_eyebrow", "label": "Etiqueta superior", "default": "Reseñas" },
+    { "type": "text", "id": "reviews_heading", "label": "Título", "default": "Lo que opinan quienes ya la tienen." },
+    { "type": "textarea", "id": "reviews_text", "label": "Párrafo", "default": "Todavía no hay reseñas publicadas — este espacio queda listo para cuando lleguen las opiniones de tus primeros clientes." },
+    { "type": "text", "id": "review_placeholder_text", "label": "Texto de ejemplo (tarjetas)", "default": "Espacio de ejemplo: reemplaza este texto con una reseña real de tu cliente." },
+    { "type": "text", "id": "review_placeholder_name", "label": "Nombre de ejemplo (tarjetas)", "default": "Nombre Apellido" },
+    { "type": "text", "id": "review_placeholder_breed", "label": "Raza de ejemplo (tarjetas)", "default": "Raza del perro" },
+
+    { "type": "header", "content": "Preguntas frecuentes" },
+    { "type": "text", "id": "faq_heading", "label": "Título de la sección", "default": "Antes de comprar" },
+    { "type": "text", "id": "faq1_q", "label": "Pregunta 1", "default": "¿Incluye el cojín?" },
+    { "type": "textarea", "id": "faq1_a", "label": "Respuesta 1", "default": "No. La cama se vende sin colchón: las ranuras laterales sujetan el cojín o colchoneta que ya tengas, o el que prefieras comprar por separado." },
+    { "type": "text", "id": "faq2_q", "label": "Pregunta 2", "default": "¿Cuánto se tarda en montar?" },
+    { "type": "textarea", "id": "faq2_a", "label": "Respuesta 2", "default": "Unos minutos, sin herramientas. El sistema de piezas entrelazadas se arma en 4 pasos y queda firme desde el primer momento." },
+    { "type": "text", "id": "faq3_q", "label": "Pregunta 3", "default": "¿Puedo pedir una talla personalizada?" },
+    { "type": "textarea", "id": "faq3_a", "label": "Respuesta 3", "default": "Escríbenos después de tu compra y estudiamos medidas a la carta para perros más grandes o más pequeños." },
+    { "type": "text", "id": "faq4_q", "label": "Pregunta 4", "default": "¿Cómo se limpia?" },
+    { "type": "textarea", "id": "faq4_a", "label": "Respuesta 4", "default": "La estructura se limpia con un paño húmedo." },
+    { "type": "text", "id": "faq5_q", "label": "Pregunta 5", "default": "Envíos y devoluciones" },
+    { "type": "textarea", "id": "faq5_a", "label": "Respuesta 5", "default": "Envío a todo Chile; el costo se calcula en el carrito según tu comuna. Si no encaja en tu casa (o en tu perro), tienes 30 días para devolverla." },
+
+    { "type": "header", "content": "Cierre final" },
+    { "type": "text", "id": "final_heading", "label": "Título", "default": "Dale a tu perro un sitio propio." },
+    { "type": "textarea", "id": "final_text", "label": "Párrafo", "default": "Hecha en madera terciada, armable sin herramientas en 4 pasos, en el color natural de la madera." }
+  ],
   "presets": [
     { "name": "Taller Pata - Producto" }
   ]
