@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Taller Pata — Cama elevada de madera para perros</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐾</text></svg>">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  .tp{
+    --ink:#1d1b17;
+    --ink-2:#262019;
+    --ink-3:#2f2921;
+    --linen:#efe9dc;
+    --linen-2:#e6ded0;
+    --bone:#ede7d8;
+    --bone-dim:#c9c1ae;
+    --wood:#c68b4f;
+    --wood-deep:#8b5a34;
+    --blue:#7fa0aa;
+    --line:rgba(237,231,216,0.16);
+    --line-linen:#d8cfba;
+    font-family:'Archivo',ui-sans-serif,system-ui,sans-serif;
+    background:var(--ink);
+    color:var(--bone);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  html,body{margin:0;padding:0;background:#1d1b17;}
+  .tp *{box-sizing:border-box;}
+  .tp img{max-width:100%;display:block;}
+  .tp .wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
+  .tp h1,.tp h2,.tp h3{font-family:'Big Shoulders Display',ui-sans-serif,sans-serif;font-weight:700;letter-spacing:0.01em;text-wrap:balance;margin:0;}
+  .tp .mono{font-family:'IBM Plex Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;}
+  .tp .eyebrow{
+    font-family:'IBM Plex Mono',ui-monospace,monospace;
+    font-size:12.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--blue);
+  }
+  .tp a{color:inherit;}
+  .tp .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    background:var(--wood);color:#241608;
+    font-family:'Archivo';font-weight:700;font-size:15px;
+    padding:15px 28px;border-radius:3px;border:none;cursor:pointer;
+    text-decoration:none;letter-spacing:0.01em;
+    transition:background .15s ease, transform .15s ease;
+  }
+  .tp .btn:hover{background:#d9a066;}
+  .tp .btn:focus-visible{outline:2px solid var(--bone);outline-offset:3px;}
+  .tp .btn-ghost{
+    background:transparent;color:var(--bone);border:1px solid var(--line);
+  }
+  .tp .btn-ghost:hover{background:var(--ink-3);}
+
+  /* utility bar */
+  .tp .utility{
+    background:var(--ink-2);border-bottom:1px solid var(--line);
+    font-family:'IBM Plex Mono';font-size:12px;letter-spacing:0.04em;color:var(--bone-dim);
+  }
+  .tp .utility .wrap{display:flex;justify-content:center;gap:36px;padding:9px 32px;flex-wrap:wrap;text-align:center;}
+
+  /* header */
+  .tp header.site{padding:22px 0 0;}
+  .tp header.site .wrap{display:flex;align-items:center;justify-content:space-between;}
+  .tp .wordmark{font-family:'Big Shoulders Display';font-weight:800;font-size:22px;letter-spacing:0.04em;display:flex;align-items:center;gap:9px;}
+  .tp .wordmark .paw{color:var(--wood);font-size:18px;}
+  .tp .price-tag{font-family:'IBM Plex Mono';font-size:15px;color:var(--bone-dim);}
+  .tp .price-tag b{color:var(--bone);font-weight:600;}
+
+  /* hero */
+  .tp .hero{padding:56px 0 0;}
+  .tp .hero .grid{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center;}
+  .tp .hero h1{font-size:clamp(40px,5.2vw,68px);line-height:0.98;margin:14px 0 20px;}
+  .tp .hero h1 em{font-style:normal;color:var(--wood);}
+  .tp .hero p.lede{font-size:17.5px;color:var(--bone-dim);max-width:46ch;margin-bottom:28px;}
+  .tp .hero-cta{display:flex;align-items:center;gap:22px;flex-wrap:wrap;}
+  .tp .hero-cta .price{font-family:'IBM Plex Mono';font-size:26px;font-weight:600;}
+  .tp .hero-cta .price small{display:block;font-size:11px;color:var(--bone-dim);font-weight:400;letter-spacing:0.06em;text-transform:uppercase;margin-top:2px;}
+
+  .tp .hero-frame{position:relative;border:1px solid var(--line);padding:14px;border-radius:4px;background:var(--ink-2);}
+  .tp .hero-photo{position:relative;aspect-ratio:4/3.1;overflow:hidden;border-radius:2px;background:#0f0e0b;}
+  .tp .hero-photo img{width:100%;height:100%;object-fit:cover;object-position:top;}
+  .tp .ph{
+    width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+    padding:20px;text-align:center;color:var(--bone-dim);
+    background:repeating-linear-gradient(45deg,var(--ink-3),var(--ink-3) 11px,var(--ink-2) 11px,var(--ink-2) 22px);
+  }
+  .tp .ph svg{width:30px;height:30px;opacity:0.55;stroke:var(--blue);}
+  .tp .ph .ph-label{font-family:'IBM Plex Mono';font-size:10.5px;letter-spacing:0.05em;text-transform:uppercase;max-width:24ch;line-height:1.5;}
+  .tp .finishes .ph,.tp .finish-photo .ph{color:#8b8272;background:repeating-linear-gradient(45deg,var(--linen-2),var(--linen-2) 11px,#e0d7c4 11px,#e0d7c4 22px);}
+  .tp .finishes .ph svg{stroke:var(--wood-deep);}
+  .tp .dim-svg{position:absolute;inset:0;pointer-events:none;}
+  .tp .dim-label{
+    position:absolute;font-family:'IBM Plex Mono';font-size:11.5px;color:var(--blue);
+    background:rgba(29,27,23,0.82);padding:2px 7px;border-radius:2px;letter-spacing:0.02em;
+  }
+
+  /* spec strip */
+  .tp .specs{border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:64px;}
+  .tp .specs .wrap{display:grid;grid-template-columns:repeat(4,1fr);}
+  .tp .spec-item{padding:22px 20px;border-left:1px solid var(--line);}
+  .tp .spec-item:first-child{border-left:none;}
+  .tp .spec-item .num{font-family:'IBM Plex Mono';font-size:21px;color:var(--wood);font-weight:600;}
+  .tp .spec-item .lab{font-size:12px;color:var(--bone-dim);letter-spacing:0.03em;margin-top:4px;}
+
+  /* story rows */
+  .tp .story{padding:96px 0;}
+  .tp .story .grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+  .tp .story.reverse .grid{direction:rtl;}
+  .tp .story.reverse .grid > *{direction:ltr;}
+  .tp .story .eyebrow{margin-bottom:12px;display:block;}
+  .tp .story h2{font-size:clamp(30px,3.4vw,42px);margin-bottom:18px;}
+  .tp .story p{color:var(--bone-dim);font-size:16px;max-width:50ch;}
+  .tp .story ul{list-style:none;margin:22px 0 0;padding:0;display:flex;flex-direction:column;gap:13px;}
+  .tp .story ul li{display:flex;gap:12px;font-size:15px;color:var(--bone);align-items:flex-start;}
+  .tp .story ul li::before{content:"";flex:none;width:7px;height:7px;margin-top:7px;background:var(--wood);border-radius:1px;transform:rotate(45deg);}
+  .tp .story-photo{aspect-ratio:5/4;overflow:hidden;border-radius:4px;border:1px solid var(--line);}
+  .tp .story-photo img{width:100%;height:100%;object-fit:cover;}
+  .tp .story-photo.pos-bottom img{object-position:bottom;}
+  .tp .story-photo.pos-top img{object-position:top;}
+
+  /* assembly diagram numbers */
+  .tp .assembly-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px;}
+  .tp .assembly-steps div{border:1px solid var(--line);border-radius:4px;padding:16px;background:var(--ink-2);}
+  .tp .assembly-steps .step-n{font-family:'IBM Plex Mono';color:var(--blue);font-size:12px;letter-spacing:0.08em;}
+  .tp .assembly-steps .step-t{font-size:14.5px;margin-top:6px;color:var(--bone);}
+
+  /* finishes (linen band) */
+  .tp .finishes{background:var(--linen);color:var(--ink);padding:88px 0;}
+  .tp .finishes .eyebrow{color:var(--wood-deep);}
+  .tp .finishes h2{color:var(--ink);font-size:clamp(30px,3.4vw,42px);max-width:22ch;margin-bottom:16px;}
+  .tp .finishes p.lede{color:#5b5344;max-width:56ch;font-size:16px;margin-bottom:36px;}
+  .tp .finish-photo{border-radius:4px;overflow:hidden;border:1px solid var(--line-linen);margin-bottom:28px;}
+  .tp .finish-photo img{width:100%;}
+  .tp .swatches{display:flex;gap:28px;flex-wrap:wrap;}
+  .tp .swatch{display:flex;align-items:center;gap:10px;}
+  .tp .swatch .chip{width:22px;height:22px;border-radius:50%;border:1px solid rgba(0,0,0,0.15);flex:none;}
+  .tp .swatch span{font-family:'IBM Plex Mono';font-size:13px;color:#3b3529;}
+  .tp .mat-note{margin-top:36px;padding-top:28px;border-top:1px solid var(--line-linen);font-size:13.5px;color:#6b6252;max-width:60ch;}
+
+  /* lifestyle gallery */
+  .tp .gallery{padding:96px 0;}
+  .tp .gallery .head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:36px;flex-wrap:wrap;}
+  .tp .gallery h2{font-size:clamp(28px,3.2vw,38px);max-width:16ch;}
+  .tp .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .tp .gallery-card{border:1px solid var(--line);border-radius:4px;overflow:hidden;background:var(--ink-2);}
+  .tp .gallery-card .ph{aspect-ratio:6/5;overflow:hidden;}
+  .tp .gallery-card .ph img{width:100%;height:100%;object-fit:cover;}
+  .tp .gallery-card .cap{padding:14px 16px;font-size:13.5px;color:var(--bone-dim);}
+  .tp .gallery-card .cap b{color:var(--bone);font-weight:600;}
+
+  /* breeds */
+  .tp .breeds{border-top:1px solid var(--line);padding:80px 0;}
+  .tp .breeds .top{display:grid;grid-template-columns:0.9fr 1.1fr;gap:48px;align-items:start;}
+  .tp .breeds h2{font-size:clamp(28px,3.2vw,38px);margin-bottom:14px;max-width:14ch;}
+  .tp .breeds p{color:var(--bone-dim);max-width:42ch;font-size:15.5px;}
+  .tp .breed-tags{display:flex;flex-wrap:wrap;gap:10px;align-content:flex-start;}
+  .tp .breed-tag{border:1px solid var(--line);border-radius:100px;padding:9px 18px;font-size:14px;color:var(--bone);}
+  .tp .breed-tag.range{border-color:var(--wood);color:var(--wood);font-family:'IBM Plex Mono';font-size:13px;}
+
+  /* faq */
+  .tp .faq{padding:80px 0 100px;border-top:1px solid var(--line);}
+  .tp .faq h2{font-size:clamp(28px,3.2vw,38px);margin-bottom:32px;}
+  .tp .faq-list{max-width:760px;}
+  .tp details{border-bottom:1px solid var(--line);padding:20px 0;}
+  .tp details summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:20px;font-size:16px;font-weight:600;color:var(--bone);}
+  .tp details summary::-webkit-details-marker{display:none;}
+  .tp details summary::after{content:"+";font-family:'IBM Plex Mono';color:var(--wood);font-size:20px;flex:none;}
+  .tp details[open] summary::after{content:"–";}
+  .tp details p{color:var(--bone-dim);font-size:14.5px;max-width:64ch;margin:14px 0 0;}
+
+  /* final cta */
+  .tp .final-cta{position:relative;padding:120px 0;overflow:hidden;border-top:1px solid var(--line);}
+  .tp .final-cta .bg{position:absolute;inset:0;}
+  .tp .final-cta .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(29,27,23,0.55),rgba(29,27,23,0.86));}
+  .tp .final-cta .content{position:relative;text-align:center;}
+  .tp .final-cta h2{font-size:clamp(34px,5vw,58px);max-width:16ch;margin:0 auto 18px;}
+  .tp .final-cta p{color:var(--bone-dim);max-width:48ch;margin:0 auto 34px;font-size:16px;}
+  .tp .final-cta .row{display:flex;justify-content:center;align-items:center;gap:22px;flex-wrap:wrap;}
+  .tp .final-cta .price{font-family:'IBM Plex Mono';font-size:24px;}
+
+  /* footer */
+  .tp footer.site{border-top:1px solid var(--line);padding:32px 0;}
+  .tp footer.site .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;}
+  .tp footer.site .fine{font-size:12.5px;color:var(--bone-dim);font-family:'IBM Plex Mono';}
+
+  @media (max-width:860px){
+    .tp .hero .grid,.tp .story .grid,.tp .finishes .top,.tp .breeds .top{grid-template-columns:1fr;}
+    .tp .story.reverse .grid{direction:ltr;}
+    .tp .specs .wrap{grid-template-columns:repeat(2,1fr);}
+    .tp .spec-item:nth-child(3){border-left:none;}
+    .tp .gallery-grid{grid-template-columns:1fr;}
+    .tp .assembly-steps{grid-template-columns:1fr;}
+    .tp .wrap{padding:0 20px;}
+  }
+</style>
+</head>
+<body>
+<div class="tp">
+
+  <div class="utility">
+    <div class="wrap">
+      <span>Envío a toda España en 3–5 días</span>
+      <span>Montaje sin herramientas · 10 minutos</span>
+      <span>Devolución gratuita 30 días</span>
+    </div>
+  </div>
+
+  <header class="site">
+    <div class="wrap">
+      <div class="wordmark"><span class="paw">🐾</span> TALLER PATA</div>
+      <div class="price-tag">Desde <b>89,00 €</b> · IVA incluido</div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap grid">
+      <div>
+        <span class="eyebrow">Cama elevada · Abedul báltico</span>
+        <h1>Una cama a<br>la altura de<br><em>tu perro.</em></h1>
+        <p class="lede">Contrachapado de abedul macizo, líneas escandinavas y un sistema de ensamblaje entrelazado que se monta sin herramientas en menos de 10 minutos. Hecha para durar, pensada para su descanso.</p>
+        <div class="hero-cta">
+          <a href="#comprar" class="btn">Añadir al carrito →</a>
+          <div class="price"><span>89,00 €</span><small>Envío incluido</small></div>
+        </div>
+      </div>
+      <div class="hero-frame">
+        <div class="hero-photo">
+          <div class="ph">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><rect x="3" y="4" width="18" height="16" rx="1.5"/><circle cx="8.5" cy="9.5" r="1.5"/><path d="M21 16l-5.5-5.5a1 1 0 00-1.4 0L6 19"/></svg>
+            <span class="ph-label">Foto: cama acabado natural en un salón, ángulo frontal</span>
+          </div>
+          <svg class="dim-svg" viewBox="0 0 100 77" preserveAspectRatio="none">
+            <line x1="8" y1="70" x2="92" y2="70" stroke="#7fa0aa" stroke-width="0.35" />
+            <line x1="8" y1="67" x2="8" y2="73" stroke="#7fa0aa" stroke-width="0.35" />
+            <line x1="92" y1="67" x2="92" y2="73" stroke="#7fa0aa" stroke-width="0.35" />
+            <line x1="4" y1="34" x2="4" y2="70" stroke="#7fa0aa" stroke-width="0.35" />
+            <line x1="1" y1="34" x2="7" y2="34" stroke="#7fa0aa" stroke-width="0.35" />
+            <line x1="1" y1="70" x2="7" y2="70" stroke="#7fa0aa" stroke-width="0.35" />
+          </svg>
+          <span class="dim-label" style="left:42%;bottom:20%;">60 × 50 cm</span>
+          <span class="dim-label" style="left:2%;top:44%;">20 cm</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="specs">
+    <div class="wrap">
+      <div class="spec-item"><div class="num">60×50<span style="font-size:13px;"> cm</span></div><div class="lab">Superficie de descanso</div></div>
+      <div class="spec-item"><div class="num">20 <span style="font-size:13px;">cm</span></div><div class="lab">Elevación del suelo</div></div>
+      <div class="spec-item"><div class="num">18 <span style="font-size:13px;">mm</span></div><div class="lab">Contrachapado de abedul</div></div>
+      <div class="spec-item"><div class="num">8–25 <span style="font-size:13px;">kg</span></div><div class="lab">Razas medianas</div></div>
+    </div>
+  </section>
+
+  <section class="story">
+    <div class="wrap grid">
+      <div class="story-photo pos-bottom"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><rect x="3" y="4" width="18" height="16" rx="1.5"/><circle cx="8.5" cy="9.5" r="1.5"/><path d="M21 16l-5.5-5.5a1 1 0 00-1.4 0L6 19"/></svg><span class="ph-label">Foto: perro tumbado sobre la cama con cojín gris</span></div></div>
+      <div>
+        <span class="eyebrow">Bienestar primero</span>
+        <h2>Diseñada pensando en él, no solo en tu salón.</h2>
+        <p>Cada detalle reduce la fricción entre lo bonito y lo funcional: ventilación bajo el colchón, bordes seguros y un agarre firme para el cojín que ya conoce.</p>
+        <ul>
+          <li>Aberturas de ventilación bajo la plataforma que reducen la humedad y los olores.</li>
+          <li>Bordes y esquinas redondeadas, seguras para patas y hocicos curiosos.</li>
+          <li>Ranuras integradas que sujetan el cojín en su sitio, incluso con movimiento.</li>
+          <li>Grabado decorativo de huella en el lateral, hecho a la medida de la pieza.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="story reverse">
+    <div class="wrap grid">
+      <div class="story-photo pos-top"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><rect x="3" y="4" width="18" height="16" rx="1.5"/><circle cx="8.5" cy="9.5" r="1.5"/><path d="M21 16l-5.5-5.5a1 1 0 00-1.4 0L6 19"/></svg><span class="ph-label">Foto: piezas de la cama antes de montarse</span></div></div>
+      <div>
+        <span class="eyebrow">Montaje sin herramientas</span>
+        <h2>Llega plana. Se monta en un café.</h2>
+        <p>Un sistema de ensamblaje entrelazado —sin tornillos ni destornilladores— une la estructura modular en minutos. Igual de fácil de desmontar si te mudas o si prefieres guardarla en verano.</p>
+        <div class="assembly-steps">
+          <div><div class="step-n">Paso 1</div><div class="step-t">Encaja las patas en la base.</div></div>
+          <div><div class="step-n">Paso 2</div><div class="step-t">Desliza los laterales entrelazados.</div></div>
+          <div><div class="step-n">Paso 3</div><div class="step-t">Coloca el cojín y listo.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="finishes">
+    <div class="wrap">
+      <div class="top">
+        <div>
+          <span class="eyebrow">Materiales y acabado</span>
+          <h2>Contrachapado de abedul báltico, de primera calidad.</h2>
+          <p class="lede">Elegimos abedul báltico de 18&nbsp;mm por su estabilidad y su veta uniforme: aguanta el uso diario de una mascota activa sin perder su aspecto cálido y contemporáneo.</p>
+          <div class="swatches">
+            <div class="swatch"><span class="chip" style="background:#d9c39a;"></span><span>Natural</span></div>
+            <div class="swatch"><span class="chip" style="background:#6b4429;"></span><span>Nogal</span></div>
+            <div class="swatch"><span class="chip" style="background:#6d7075;"></span><span>Gris piedra</span></div>
+          </div>
+          <p class="mat-note">Acabado con aceites naturales sin tóxicos, seguros para el contacto directo con tu mascota. Colchón acolchado incluido, funda extraíble y lavable.</p>
+        </div>
+        <div class="finish-photo">
+          <div class="ph" style="aspect-ratio:1588/387;"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><rect x="3" y="4" width="18" height="16" rx="1.5"/><circle cx="8.5" cy="9.5" r="1.5"/><path d="M21 16l-5.5-5.5a1 1 0 00-1.4 0L6 19"/></svg><span class="ph-label">Foto: los 3 acabados en fila — natural, nogal, gris piedra</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery">
+    <div class="wrap">
+      <div class="head">
+        <h2>Encaja en cualquier casa, con cualquier perro.</h2>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-card">
+          <div class="ph" style="aspect-ratio:1588/1043;"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><rect x="3" y="4" width="18" height="16" rx="1.5"/><circle cx="8.5" cy="9.5" r="1.5"/><path d="M21 16l-5.5-5.5a1 1 0 00-1.4 0L6 19"/></svg><span class="ph-label">Foto: acabado nogal, cojín beige</span></div>
+          <div class="cap"><b>Acabado nogal</b> · cojín beige</div>
+        </div>
+        <div class="gallery-card">
+          <div class="ph" style="aspect-ratio:1588/1043;"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><rect x="3" y="4" width="18" height="16" rx="1.5"/><circle cx="8.5" cy="9.5" r="1.5"/><path d="M21 16l-5.5-5.5a1 1 0 00-1.4 0L6 19"/></svg><span class="ph-label">Foto: acabado natural con Jack Russell</span></div>
+          <div class="cap"><b>Acabado natural</b> · para razas pequeñas-medianas</div>
+        </div>
+        <div class="gallery-card">
+          <div class="ph" style="aspect-ratio:1588/1043;"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><rect x="3" y="4" width="18" height="16" rx="1.5"/><circle cx="8.5" cy="9.5" r="1.5"/><path d="M21 16l-5.5-5.5a1 1 0 00-1.4 0L6 19"/></svg><span class="ph-label">Foto: acabado nogal, cojín verde salvia</span></div>
+          <div class="cap"><b>Acabado nogal</b> · cojín verde salvia</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="breeds">
+    <div class="wrap top">
+      <div>
+        <h2>¿Para qué perros es ideal?</h2>
+        <p>Dimensionada para razas medianas que buscan un sitio propio elevado del suelo, lejos de corrientes de aire.</p>
+      </div>
+      <div class="breed-tags">
+        <span class="breed-tag range">8–25 kg aprox.</span>
+        <span class="breed-tag">Beagle</span>
+        <span class="breed-tag">Cocker Spaniel</span>
+        <span class="breed-tag">Border Collie</span>
+        <span class="breed-tag">Pastor Australiano</span>
+        <span class="breed-tag">Bulldog Inglés</span>
+        <span class="breed-tag">Y razas de tamaño similar</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq">
+    <div class="wrap">
+      <h2>Antes de comprar</h2>
+      <div class="faq-list">
+        <details open>
+          <summary>¿Incluye el cojín?</summary>
+          <p>Sí, cada cama incluye un colchón acolchado con funda extraíble y lavable en el acabado que elijas.</p>
+        </details>
+        <details>
+          <summary>¿Cuánto se tarda en montar?</summary>
+          <p>Unos 10 minutos, sin herramientas. El sistema de piezas entrelazadas encaja a mano y queda firme desde el primer momento.</p>
+        </details>
+        <details>
+          <summary>¿Puedo pedir una talla personalizada?</summary>
+          <p>Escríbenos después de tu compra y estudiamos medidas a la carta para perros más grandes o más pequeños.</p>
+        </details>
+        <details>
+          <summary>¿Cómo se limpia?</summary>
+          <p>La estructura se limpia con un paño húmedo. La funda del cojín es extraíble y apta para lavadora en frío.</p>
+        </details>
+        <details>
+          <summary>Envíos y devoluciones</summary>
+          <p>Envío a toda España en 3–5 días laborables. Si no encaja en tu casa (o en tu perro), tienes 30 días para devolverla.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta" id="comprar">
+    <div class="bg"><div class="ph" style="height:100%;"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><rect x="3" y="4" width="18" height="16" rx="1.5"/><circle cx="8.5" cy="9.5" r="1.5"/><path d="M21 16l-5.5-5.5a1 1 0 00-1.4 0L6 19"/></svg><span class="ph-label">Foto: cama en salón, luz cálida</span></div></div>
+    <div class="wrap content">
+      <h2>Dale a tu perro un sitio propio.</h2>
+      <p>Hecha en abedul báltico, montada sin herramientas, pensada para años de siestas.</p>
+      <div class="row">
+        <a href="#" class="btn">Añadir al carrito →</a>
+        <span class="price">89,00 € · envío incluido</span>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site">
+    <div class="wrap">
+      <div class="wordmark" style="font-size:16px;"><span class="paw">🐾</span> TALLER PATA</div>
+      <div class="fine">Diseño escandinavo · Fabricado en abedul báltico</div>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
