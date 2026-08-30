@@ -43,7 +43,7 @@
     display:inline-flex;align-items:center;gap:10px;
     background:var(--wood);color:var(--ink);
     font-family:'Roboto';font-weight:700;font-size:15px;
-    padding:15px 28px;border-radius:3px;border:none;cursor:pointer;
+    padding:15px 28px;border-radius:999px;border:none;cursor:pointer;
     text-decoration:none;letter-spacing:0.01em;
     transition:background .15s ease, transform .15s ease;
   }
@@ -119,11 +119,29 @@
   .tp .story-photo.pos-bottom img{object-position:bottom;}
   .tp .story-photo.pos-top img{object-position:top;}
 
-  /* assembly diagram numbers */
-  .tp .assembly-steps{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:28px;}
-  .tp .assembly-steps div{border:1px solid var(--line);border-radius:4px;padding:16px;background:var(--cream-2);}
-  .tp .assembly-steps .step-n{font-family:'DM Sans';color:var(--blue-ink);font-size:12px;letter-spacing:0.08em;}
-  .tp .assembly-steps .step-t{font-size:14.5px;margin-top:6px;color:var(--ink);}
+  /* assembly feature cards */
+  .tp .assembly{padding:96px 0;}
+  .tp .assembly-intro{max-width:640px;margin:0 auto 48px;text-align:center;}
+  .tp .assembly-intro .eyebrow{display:block;margin-bottom:12px;}
+  .tp .assembly-intro h2{font-size:clamp(30px,3.4vw,42px);margin-bottom:16px;}
+  .tp .assembly-intro p{color:var(--ink-dim);font-size:16px;margin:0 auto;}
+  .tp .feature-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+  .tp .feature-card{
+    background:var(--cream-2);border:1px solid var(--line);border-radius:20px;
+    padding:32px 22px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;
+    transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  }
+  .tp .feature-card:hover{transform:translateY(-6px);box-shadow:0 16px 32px -20px rgba(34,40,42,0.28);border-color:var(--wood-deep);}
+  .tp .feature-icon{width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex:none;}
+  .tp .feature-icon svg{width:28px;height:28px;fill:none;}
+  .tp .feature-icon--a{background:rgba(169,113,58,0.14);}
+  .tp .feature-icon--a svg{stroke:var(--wood-deep);}
+  .tp .feature-icon--b{background:rgba(47,143,166,0.14);}
+  .tp .feature-icon--b svg{stroke:var(--blue-ink);}
+  .tp .feature-tag{font-family:'DM Sans';font-weight:700;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;padding:5px 14px;border-radius:100px;}
+  .tp .feature-tag--a{background:rgba(169,113,58,0.12);color:var(--wood-deep);}
+  .tp .feature-tag--b{background:rgba(47,143,166,0.12);color:var(--blue-ink);}
+  .tp .feature-title{font-family:'DM Sans';font-weight:600;font-size:15.5px;line-height:1.45;color:var(--ink);margin:0;}
 
   /* material (sky band) */
   .tp .finishes{background:var(--sky);padding:88px 0;}
@@ -189,7 +207,7 @@
     .tp .specs .wrap{grid-template-columns:repeat(2,1fr);}
     .tp .spec-item:nth-child(3){border-left:none;}
     .tp .gallery-grid{grid-template-columns:1fr;}
-    .tp .assembly-steps{grid-template-columns:1fr;}
+    .tp .feature-grid{grid-template-columns:repeat(2,1fr);}
     .tp .wrap{padding:0 20px;}
   }
 </style>
@@ -270,18 +288,33 @@
     </div>
   </section>
 
-  <section class="story reverse">
-    <div class="wrap grid">
-      <div class="story-photo pos-top"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><rect x="3" y="4" width="18" height="16" rx="1.5"/><circle cx="8.5" cy="9.5" r="1.5"/><path d="M21 16l-5.5-5.5a1 1 0 00-1.4 0L6 19"/></svg><span class="ph-label">Foto: piezas de la cama antes de montarse</span></div></div>
-      <div>
+  <section class="assembly">
+    <div class="wrap">
+      <div class="assembly-intro">
         <span class="eyebrow">Montaje sin herramientas</span>
         <h2>Llega plana. Se arma en 4 pasos.</h2>
         <p>Un sistema de ensamblaje entrelazado —sin tornillos ni destornilladores— une la estructura modular en minutos. Igual de fácil de desmontar si te mudas o si prefieres guardarla.</p>
-        <div class="assembly-steps">
-          <div><div class="step-n">Paso 1</div><div class="step-t">Encaja las patas delanteras y traseras en la base.</div></div>
-          <div><div class="step-n">Paso 2</div><div class="step-t">Desliza los paneles laterales entrelazados.</div></div>
-          <div><div class="step-n">Paso 3</div><div class="step-t">Encaja el respaldo trasero en las ranuras superiores.</div></div>
-          <div><div class="step-n">Paso 4</div><div class="step-t">Presiona las uniones hasta que queden firmes.</div></div>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-icon feature-icon--a"><svg viewBox="0 0 24 24" stroke-width="1.4"><path d="M5 19h14"/><path d="M8 19V9"/><circle cx="8" cy="9" r="1.6"/><path d="M16 19V9"/><circle cx="16" cy="9" r="1.6"/></svg></div>
+          <span class="feature-tag feature-tag--a">Paso 1</span>
+          <h3 class="feature-title">Encaja las patas delanteras y traseras en la base.</h3>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon feature-icon--b"><svg viewBox="0 0 24 24" stroke-width="1.4"><rect x="4" y="5" width="7" height="14" rx="1"/><rect x="13" y="5" width="7" height="14" rx="1"/><path d="M11 9l2 2-2 2 2 2"/></svg></div>
+          <span class="feature-tag feature-tag--b">Paso 2</span>
+          <h3 class="feature-title">Desliza los paneles laterales entrelazados.</h3>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon feature-icon--a"><svg viewBox="0 0 24 24" stroke-width="1.4"><path d="M12 3v10"/><path d="M8 9l4 4 4-4"/><path d="M5 19h14"/><path d="M5 19v-3"/><path d="M19 19v-3"/></svg></div>
+          <span class="feature-tag feature-tag--a">Paso 3</span>
+          <h3 class="feature-title">Encaja el respaldo trasero en las ranuras superiores.</h3>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon feature-icon--b"><svg viewBox="0 0 24 24" stroke-width="1.4"><path d="M4 12h4"/><path d="M16 12h4"/><path d="M8 12l2-2m-2 2l2 2"/><path d="M16 12l-2-2m2 2l-2 2"/><circle cx="12" cy="12" r="1.6"/></svg></div>
+          <span class="feature-tag feature-tag--b">Paso 4</span>
+          <h3 class="feature-title">Presiona las uniones hasta que queden firmes.</h3>
         </div>
       </div>
     </div>
