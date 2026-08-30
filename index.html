@@ -68,6 +68,7 @@
   .tp .wordmark .paw{color:var(--wood-deep);font-size:18px;}
   .tp .price-tag{font-family:'DM Sans';font-size:15px;color:var(--ink-dim);}
   .tp .price-tag b{color:var(--ink);font-weight:600;}
+  .tp .price-tag .was{text-decoration:line-through;opacity:0.65;margin-right:2px;}
 
   /* hero */
   .tp .hero{padding:56px 0 0;}
@@ -77,6 +78,7 @@
   .tp .hero p.lede{font-size:17.5px;color:var(--ink-dim);max-width:46ch;margin-bottom:28px;}
   .tp .hero-cta{display:flex;align-items:center;gap:22px;flex-wrap:wrap;}
   .tp .hero-cta .price{font-family:'DM Sans';font-size:26px;font-weight:600;}
+  .tp .hero-cta .price .was{text-decoration:line-through;color:var(--ink-dim);font-weight:400;font-size:0.6em;margin-right:6px;}
   .tp .hero-cta .price small{display:block;font-size:11px;color:var(--ink-dim);font-weight:400;letter-spacing:0.06em;text-transform:uppercase;margin-top:2px;}
 
   .tp .hero-frame{position:relative;}
@@ -212,6 +214,7 @@
   .tp .final-cta p{color:var(--cream-dim);max-width:48ch;margin:0 auto 34px;font-size:16px;}
   .tp .final-cta .row{display:flex;justify-content:center;align-items:center;gap:22px;flex-wrap:wrap;}
   .tp .final-cta .price{font-family:'DM Sans';font-size:24px;color:var(--wood);}
+  .tp .final-cta .price .was{text-decoration:line-through;color:var(--cream-dim);font-weight:400;font-size:0.7em;margin-right:6px;}
 
   /* footer */
   .tp footer.site{border-top:1px solid var(--line);padding:32px 0;}
@@ -243,7 +246,7 @@
   <header class="site">
     <div class="wrap">
       <div class="wordmark"><span class="paw">🐾</span> TALLER PATA</div>
-      <div class="price-tag">Desde <b>$79.990</b> · IVA incluido</div>
+      <div class="price-tag">Desde <span class="was">$79.990</span> <b>$59.990</b> · IVA incluido</div>
     </div>
   </header>
 
@@ -255,7 +258,7 @@
         <p class="lede">Líneas escandinavas y un sistema de ensamblaje entrelazado que se arma sin herramientas en 4 pasos. Ligera, resistente y en su color natural, sin tinturas ni barnices.</p>
         <div class="hero-cta">
           <a href="#comprar" class="btn">Añadir al carrito →</a>
-          <div class="price"><span>$79.990</span><small>+ envío</small></div>
+          <div class="price"><span><span class="was">$79.990</span>Ahora $59.990</span><small>+ envío</small></div>
         </div>
       </div>
       <div class="hero-frame">
@@ -466,7 +469,7 @@
       <p>Hecha en madera terciada, armable sin herramientas en 4 pasos, en el color natural de la madera.</p>
       <div class="row">
         <a href="#" class="btn">Añadir al carrito →</a>
-        <span class="price">$79.990 · + envío</span>
+        <span class="price"><span class="was">$79.990</span>Ahora $59.990 · + envío</span>
       </div>
     </div>
   </section>
